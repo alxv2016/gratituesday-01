@@ -20,6 +20,8 @@ main {
 .surfaces {
   position: relative;
   width: 100%;
+  max-width: 568px;
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 1fr;
@@ -37,6 +39,8 @@ main {
 .palettes {
   position: relative;
   width: 100%;
+  max-width: 568px;
+  margin: auto;
   display: grid;
   margin-top: $layout--md;
   grid-template-columns: repeat(3, 1fr);
@@ -44,15 +48,19 @@ main {
   justify-items: center;
   justify-content: stretch;
   @include breakpoint(sm) {
-    grid-template-columns: repeat(3, 160px);
     justify-content: center;
-  }
-  @include breakpoint(md) {
-    grid-template-columns: repeat(3, 196px);
   }
 
   p {
     margin: 0;
+  }
+
+  &__description {
+    position: relative;
+    width: 100%;
+    max-width: 568px;
+    margin: auto;
+    margin-top: $layout--md;
   }
 }
 
