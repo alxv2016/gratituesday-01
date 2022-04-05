@@ -12,9 +12,19 @@
 main {
   width: 100%;
   max-width: 768px;
+  margin-top: $layout--lg;
   @include breakpoint(md) {
-    margin: auto;
+    margin: 0 auto;
+    margin-top: $layout--xl;
   }
+}
+
+.theme-selection {
+  position: relative;
+  width: 100%;
+  max-width: 568px;
+  margin: auto;
+  margin-top: $layout--md;
 }
 
 .surfaces {
@@ -151,4 +161,43 @@ main {
     0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.02)),
     0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
     0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  font-size: $subtitle;
+  font-weight: 700;
+}
+
+.radio-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @include breakpoint(sm) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  label {
+    margin-left: $spacing--sm;
+  }
+}
+
+.radio ~ .radio {
+  margin-left: 0;
+  margin-top: $spacing--md;
+  @include breakpoint(sm) {
+    margin-top: 0;
+    margin-left: $spacing--md;
+  }
 }

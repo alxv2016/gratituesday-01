@@ -91,6 +91,12 @@
   }
 }
 
+.elevate {
+  box-shadow: 0 14px 28px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.025)),
+    0 10px 10px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.075));
+}
+
+// Demo setting
 [color-scheme='light'] {
   color-scheme: light;
 
@@ -131,4 +137,9 @@
   --surface4: var(--surface4-dim);
   --surface-shadow: var(--surface-shadow-dim);
   --shadow-strength: var(--shadow-strength-dim);
+}
+
+html {
+  color: var(--text1);
+  background-color: var(--surface1);
 }
