@@ -24,7 +24,7 @@ main {
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 1fr;
   justify-content: stretch;
-  grid-gap: $spacing--md;
+  grid-gap: $spacing--2xl;
   @include breakpoint(sm) {
     grid-template-columns: repeat(2, 160px);
     justify-content: center;
@@ -32,6 +32,49 @@ main {
   @include breakpoint(md) {
     grid-template-columns: repeat(2, 196px);
   }
+}
+
+.palettes {
+  position: relative;
+  width: 100%;
+  display: grid;
+  margin-top: $layout--md;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  justify-content: stretch;
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(3, 160px);
+    justify-content: center;
+  }
+  @include breakpoint(md) {
+    grid-template-columns: repeat(3, 196px);
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.palette {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include breakpoint(md) {
+    flex-direction: row;
+  }
+}
+
+.swatch-1,
+.swatch-2,
+.swatch-3 {
+  position: relative;
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  margin: $spacing--sm;
 }
 
 .surface-1,
@@ -53,46 +96,36 @@ main {
   }
 }
 
-.palette {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.surface-1,
-.swatch-1 {
+.surface-1 {
   background-color: var(--surface1);
   color: var(--text2);
 }
 
-.surface-2,
-.swatch-2 {
+.surface-2 {
   background-color: var(--surface2);
   color: var(--text2);
 }
 
-.surface-3,
-.swatch-3 {
+.surface-3 {
   background-color: var(--surface3);
   color: var(--text1);
 }
 
-.surface-4,
-.swatch-4 {
+.surface-4 {
   background-color: var(--surface4);
   color: var(--text1);
 }
 
-.swatch-1,
-.swatch-2,
-.swatch-3,
-.swatch-4 {
-  position: relative;
-  display: inline-block;
-  height: 48px;
-  width: 48px;
-  border-radius: 100%;
-  margin: $spacing--sm;
+.swatch-1 {
+  background-color: var(--brand);
+}
+
+.swatch-2 {
+  background-color: var(--text1);
+}
+
+.swatch-3 {
+  background-color: var(--text2);
 }
 
 .text-1 {
