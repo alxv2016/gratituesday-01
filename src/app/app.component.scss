@@ -184,20 +184,98 @@ legend {
   }
 }
 
-.radio {
+// .radio {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   label {
+//     margin-left: $spacing--sm;
+//   }
+// }
+
+// .radio ~ .radio {
+//   margin-left: 0;
+//   margin-top: $spacing--md;
+//   @include breakpoint(sm) {
+//     margin-top: 0;
+//     margin-left: $spacing--md;
+//   }
+// }
+
+.cr {
   position: relative;
-  display: flex;
-  align-items: center;
-  label {
-    margin-left: $spacing--sm;
-  }
 }
 
-.radio ~ .radio {
+.cr ~ .cr {
   margin-left: 0;
   margin-top: $spacing--md;
   @include breakpoint(sm) {
     margin-top: 0;
     margin-left: $spacing--md;
   }
+}
+
+// hide native buttons
+.radio {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  opacity: 0;
+  pointer-events: none;
+}
+
+// label
+.radio + label {
+  display: inline-flex;
+  align-items: flex-start;
+  user-select: none;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+// custom buttons - basic style
+.radio + label::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  top: calc((1em * 1.5 - 18px) / 2);
+  background-color: var(--surface4);
+  margin-right: 8px; // gap between custom input and label
+  transition: transform 0.2s, border 0.2s;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  border: 2px solid var(--text2);
+  border-radius: 50%;
+}
+
+// :checked
+.radio:checked + label::before {
+  background-color: var(--brand);
+  box-shadow: none;
+  border-color: var(--brand);
+  transition: transform 0.2s;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='8' fill='white'/%3E%3C/svg%3E%0A");
+  background-size: 8px;
+}
+
+// :active
+.radio:active + label::before {
+  transform: scale(0.8);
+  transition: transform 0.2s;
+}
+
+// :checked:active
+.radio:checked:active + label::before {
+  transform: none;
+  transition: none;
+}
+
+// :focus
+.radio:checked:active + label::before,
+.radio:focus + label::before {
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
 }

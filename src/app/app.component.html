@@ -24,8 +24,15 @@
       <fieldset>
         <legend>Scheme</legend>
         <div class="radio-group">
-          <div class="radio" *ngFor="let control of this.colorScheme">
-            <input name="scheme" [id]="control.value" type="radio" [value]="control.value" formControlName="scheme" />
+          <div class="cr" *ngFor="let control of this.colorScheme">
+            <input
+              class="radio"
+              name="scheme"
+              [id]="control.value"
+              type="radio"
+              [value]="control.value"
+              formControlName="scheme"
+            />
             <label [for]="control.value">{{ control.label }}</label>
           </div>
         </div>
