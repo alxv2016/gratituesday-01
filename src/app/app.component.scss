@@ -105,6 +105,7 @@ main {
   justify-content: center;
   height: 132px;
   width: 100%;
+  font-weight: 700;
   border-radius: $spacing--sm;
   @include breakpoint(sm) {
     height: 160px;
@@ -184,24 +185,6 @@ legend {
   }
 }
 
-// .radio {
-//   position: relative;
-//   display: flex;
-//   align-items: center;
-//   label {
-//     margin-left: $spacing--sm;
-//   }
-// }
-
-// .radio ~ .radio {
-//   margin-left: 0;
-//   margin-top: $spacing--md;
-//   @include breakpoint(sm) {
-//     margin-top: 0;
-//     margin-left: $spacing--md;
-//   }
-// }
-
 .cr {
   position: relative;
 }
@@ -211,7 +194,7 @@ legend {
   margin-top: $spacing--md;
   @include breakpoint(sm) {
     margin-top: 0;
-    margin-left: $spacing--md;
+    margin-left: $spacing--xl;
   }
 }
 

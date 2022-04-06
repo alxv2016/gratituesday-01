@@ -9,14 +9,11 @@
 @import './scss/07_base';
 // Colors
 * {
-  // Original Hex
-  --brand: #4b7f89;
-  // HSL
-  --brand-hsl: (190 29% 42%);
+  // Brand
   // Broken down
-  --brand-hue: 190;
-  --brand-saturation: 29%;
-  --brand-lightness: 42%;
+  --brand-hue: 72;
+  --brand-saturation: 100%;
+  --brand-lightness: 55%;
 
   // Light
   // Rebuild with variables
