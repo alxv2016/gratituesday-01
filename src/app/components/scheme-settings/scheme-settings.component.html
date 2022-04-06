@@ -1,0 +1,18 @@
+<form class="theme-selection" [formGroup]="themeForm">
+  <fieldset>
+    <legend>Scheme</legend>
+    <div class="radio-group">
+      <div class="cr" *ngFor="let control of this.colorScheme">
+        <input
+          class="radio"
+          name="scheme"
+          [id]="control.value"
+          type="radio"
+          [value]="control.value"
+          formControlName="scheme"
+        />
+        <label [for]="control.value">{{ control.label }}</label>
+      </div>
+    </div>
+  </fieldset>
+</form>

@@ -1,0 +1,177 @@
+@import '../../../scss/00_imports';
+
+:host-context(.c-bottom-pane) {
+  position: fixed;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  outline: none;
+  user-select: none;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: inherit;
+    width: inherit;
+    //  @include frosted-glass(var(--color-bg-rgb), 0.125);
+    will-change: opacity;
+    opacity: 0;
+    transition: opacity 275ms 75ms ease;
+  }
+}
+
+// Animate state
+:host-context(.c-bottom-pane--animate) .c-bottom-pane-window {
+  visibility: visible;
+  transition: transform 275ms 75ms ease;
+}
+
+// Opened state
+:host-context(.c-bottom-pane--visible) {
+  pointer-events: auto;
+  .c-bottom-pane-window {
+    visibility: visible;
+    transform: none;
+  }
+}
+
+:host-context(.c-bottom-pane--visible):host-context(.c-bottom-pane) {
+  &::before {
+    opacity: 1;
+  }
+}
+
+.c-bottom-pane-window {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 7;
+  width: 100%;
+  height: auto;
+  max-width: 968px;
+  min-height: 40%;
+  max-height: 80%;
+  color: currentColor;
+  background-color: var(--surface2);
+  border-top-left-radius: $spacing--lg;
+  border-top-right-radius: $spacing--lg;
+  overflow: hidden;
+  transform: translateY(102%);
+  // @include elevate-5(var(--color-shadow-rgb), 0.045);
+  visibility: hidden;
+
+  &__header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 $spacing--lg;
+    @include breakpoint(md) {
+      padding: 0 $spacing--xl;
+    }
+    background-color: inherit;
+  }
+
+  &__content {
+    position: relative;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-grow: 1;
+    padding: $spacing--lg $spacing--lg;
+    padding-top: $spacing--xl;
+    padding-right: 44px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    @include breakpoint(md) {
+      padding: $spacing--xl $spacing--xl;
+      padding-top: $spacing--2xl;
+      padding-right: 44px;
+    }
+    /* Works on Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: currentColor;
+      border-radius: 20px;
+      border: 2px solid transparent;
+    }
+  }
+
+  &-handle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 6px;
+    margin-top: $spacing--sm;
+    pointer-events: none;
+    &::before {
+      content: '';
+      position: relative;
+      width: 5%;
+      min-width: 48px;
+      height: inherit;
+      border-radius: 4px;
+      background-color: var(--surface2);
+      opacity: 0.145;
+    }
+  }
+}
+
+.c-bottom-pane-title {
+  position: relative;
+  font-weight: 500;
+  font-size: $subtitle;
+  color: currentColor;
+  margin: 0;
+  margin-top: $spacing--md;
+  @include breakpoint(md) {
+    font-size: $subtitle--2;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  z-index: 1;
+  top: $spacing--lg;
+  right: $spacing--sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  height: 44px;
+  width: 44px;
+  border-radius: 100%;
+  background-color: transparent;
+  transition: background 275ms ease;
+  @include breakpoint(md) {
+    right: $spacing--lg;
+  }
+  &:hover,
+  &:focus {
+    background-color: var(--surface1);
+  }
+  svg {
+    height: 24px;
+    width: 24px;
+  }
+}

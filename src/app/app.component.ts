@@ -1,6 +1,7 @@
 import {DOCUMENT} from '@angular/common';
-import {AfterViewInit, Component, Inject, OnInit, Renderer2} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {BottomPaneDirective} from './components/bottom-pane/bottom-pane.directive';
 
 @Component({
   host: {
@@ -11,7 +12,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  themeForm!: FormGroup;
   title = 'adaptive-color-scheme';
   colorScheme = [
     {
@@ -37,18 +37,10 @@ export class AppComponent implements OnInit, AfterViewInit {
   ];
   swatches = ['Brand', 'Text Color 1', 'Text Color 2'];
   surfaces = ['Surface 1', 'Surface 2', 'Surface 3', 'Surface 4'];
+  @ViewChild(BottomPaneDirective, {static: true}) bottomPaneHost!: BottomPaneDirective;
   constructor(@Inject(DOCUMENT) private document: Document, private fb: FormBuilder, private render: Renderer2) {}
 
-  ngOnInit(): void {
-    const doc = this.document.firstElementChild;
-    this.themeForm = this.fb.group({
-      scheme: ['auto'],
-    });
-
-    this.themeForm.valueChanges.subscribe((x) => {
-      this.render.setAttribute(doc, 'color-scheme', x.scheme);
-    });
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {}
 }
