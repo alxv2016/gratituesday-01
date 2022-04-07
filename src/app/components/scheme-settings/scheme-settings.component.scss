@@ -8,7 +8,7 @@
 .theme-selection {
   position: relative;
   width: 100%;
-  margin-top: $layout--sm;
+  margin-bottom: $layout--sm;
 }
 
 fieldset {
@@ -32,86 +32,108 @@ legend {
   }
 }
 
-// .cr {
-//   --cr-size: 1.45rem;
-//   position: relative;
-//   width: auto;
-// }
+.cr {
+  position: relative;
+}
 
-// .cr ~ .cr {
-//   // margin-left: 0;
-//   // margin-top: $spacing--md;
-//   // @include breakpoint(sm) {
-//   //   margin-top: 0;
-//   //   margin-left: 45px;
-//   // }
-// }
+.cr ~ .cr {
+  margin-left: $spacing--2xl;
+}
 
-// // hide native buttons
-// .radio {
-//   position: relative;
-//   width: var(--cr-size);
-//   height: var(--cr-size);
-//   opacity: 0;
-//   pointer-events: none;
-// }
+// hide native buttons
+.radio,
+.checkbox {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  pointer-events: none;
+}
 
-// // label
-// .radio + label {
-//   display: inline-flex;
-//   align-items: flex-start;
-//   user-select: none;
-//   width: var(--cr-size);
-//   height: var(--cr-size);
-//   cursor: pointer;
-//   line-height: 1.5;
-//   font-size: var(--cr-size)
-// }
+// label
+.radio + label,
+.checkbox + label {
+  display: inline-flex;
+  align-items: flex-start;
+  user-select: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
 
-// // custom buttons - basic style
-// .radio + label::before {
-//   content: '';
-//   display: inline-block;
-//   position: relative;
-//   width: inherit;
-//   height: inherit;
-//   opacity: 1;
-//   top: calc((1em * 1.5 - var(--cr-size)) / 2);
-//   background-color: var(--surface4);
-//   // margin-right: $spacing--md; // gap between custom input and label
-//   transition: transform 0.2s, border 0.2s;
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   flex-shrink: 0;
-//   border: 2px solid var(--text2);
-//   border-radius: 50%;
-// }
+// custom buttons - basic style
+.radio + label::before,
+.checkbox + label::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: calc((1em * 1.5 - 24px) / 2);
+  background-color: var(--surface1);
+  margin-right: 12px; // gap between custom input and label
+  transition: transform 0.2s, border 0.2s;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+  border: 2px solid currentColor;
+}
 
-// // :checked
-// .radio:checked + label::before {
-//   background-color: var(--brand);
-//   box-shadow: none;
-//   border-color: var(--brand);
-//   transition: transform 0.2s;
-//   background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='8' fill='white'/%3E%3C/svg%3E%0A");
-//   background-size: 8px;
-// }
+.radio + label::before {
+  border-radius: 100%;
+}
 
-// // :active
-// .radio:active + label::before {
-//   transform: scale(0.8);
-//   transition: transform 0.2s;
-// }
+// radio only style
+.radio + label::before {
+  border-radius: 100%;
+}
 
-// // :checked:active
-// .radio:checked:active + label::before {
-//   transform: none;
-//   transition: none;
-// }
+// checkbox only style
+.checkbox + label::before {
+  border-radius: 4px;
+}
 
-// // :focus
-// .radio:checked:active + label::before,
-// .radio:focus + label::before {
-//   outline: 5px auto Highlight;
-//   outline: 5px auto -webkit-focus-ring-color;
-// }
+// :checked
+.radio:checked + label::before,
+.checkbox:checked + label::before {
+  background-color: var(--brand);
+  box-shadow: none;
+  border-color: var(--brand);
+  transition: transform 0.2s;
+}
+
+// :active
+.radio:active + label::before,
+.checkbox:active + label::before {
+  transform: scale(0.8);
+  transition: transform 0.2s;
+}
+
+// :checked:active
+.radio:checked:active + label::before,
+.checkbox:checked:active + label::before {
+  transform: none;
+  transition: none;
+}
+
+// radio button icon
+.radio:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg class='box' width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23FFFFFF'/%3E%3C/svg%3E%0A");
+  background-size: 8px;
+}
+
+// checkbox button icon
+.checkbox:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpolyline points='1 6.5 4 9.5 11 2.5' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: 12px;
+}
+
+// :focus
+.radio:checked:active + label::before,
+.checkbox:checked:active + label::before,
+.radio:focus + label::before,
+.checkbox:focus + label::before {
+  // border-color: currentColor;
+  outline: 5px auto Highlight;
+  outline: 5px auto -webkit-focus-ring-color;
+}

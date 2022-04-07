@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {}
 
   openSettings(): void {
-    this.bp.createBottomPane(SchemeSettingsComponent);
+    this.bp.createBottomPane(SchemeSettingsComponent, 'Settings');
   }
 
   ngAfterViewInit(): void {
