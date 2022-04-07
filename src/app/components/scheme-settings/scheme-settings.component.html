@@ -14,5 +14,47 @@
         <label [for]="control.value">{{ control.label }}</label>
       </div>
     </div>
+    <div class="form-control">
+      <label for="hue" id="hue">Hue</label>
+      <input
+        #hueSlider
+        name="hue"
+        type="range"
+        formControlName="hue"
+        aria-labelledby="hue"
+        [value]="0"
+        step="1"
+        min="0"
+        max="360"
+      />
+    </div>
+    <div class="form-control">
+      <label for="saturation" id="saturation">Saturation</label>
+      <input
+        #satSlider
+        name="saturation"
+        type="range"
+        formControlName="saturation"
+        aria-labelledby="saturation"
+        [value]="0"
+        step="1"
+        min="0"
+        max="100"
+      />
+    </div>
+    <div class="form-control">
+      <label for="lightness" id="lightness">Lightness</label>
+      <input
+        #lightSlider
+        name="lightness"
+        type="range"
+        formControlName="lightness"
+        aria-labelledby="lightness"
+        [value]="0"
+        step="1"
+        min="0"
+        max="100"
+      />
+    </div>
   </fieldset>
 </form>

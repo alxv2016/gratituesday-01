@@ -7,6 +7,16 @@
 @import './scss/05_variables';
 @import './scss/06_typography';
 @import './scss/07_base';
+// Utilities
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
 // Colors
 * {
   // Brand
