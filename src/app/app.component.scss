@@ -12,25 +12,18 @@
 main {
   width: 100%;
   max-width: 768px;
-  margin-top: $layout--lg;
+  margin-top: $layout--sm;
+  padding-bottom: $layout--xl;
   @include breakpoint(md) {
     margin: 0 auto;
-    margin-top: $layout--xl;
+    margin-top: $layout--lg;
   }
-}
-
-.theme-selection {
-  position: relative;
-  width: 100%;
-  max-width: 568px;
-  margin: auto;
-  margin-top: $layout--md;
 }
 
 .surfaces {
   position: relative;
   width: 100%;
-  max-width: 568px;
+  max-width: 768px;
   margin: auto;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -38,31 +31,51 @@ main {
   justify-content: stretch;
   grid-gap: $spacing--2xl;
   @include breakpoint(sm) {
-    grid-template-columns: repeat(2, 160px);
+    grid-template-columns: repeat(3, 160px);
     justify-content: center;
   }
   @include breakpoint(md) {
-    grid-template-columns: repeat(2, 196px);
+    grid-template-columns: repeat(3, 196px);
+  }
+}
+
+.surface {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 98px;
+  width: 100%;
+  font-weight: 700;
+  border-radius: $spacing--sm;
+  @include breakpoint(sm) {
+    height: 160px;
+  }
+  @include breakpoint(md) {
+    height: 196px;
   }
 }
 
 .palettes {
   position: relative;
   width: 100%;
-  max-width: 568px;
+  max-width: 768px;
   margin: auto;
   display: grid;
   margin-top: $layout--md;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: $spacing--lg;
   align-items: center;
   justify-items: center;
   justify-content: stretch;
   @include breakpoint(sm) {
+    grid-template-columns: repeat(4, 1fr);
     justify-content: center;
   }
 
   p {
     margin: 0;
+    font-weight: 500;
   }
 
   &__description {
@@ -79,40 +92,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  @include breakpoint(md) {
-    flex-direction: row;
-  }
 }
 
-.swatch-1,
-.swatch-2,
-.swatch-3 {
+.swatch {
   position: relative;
   display: inline-block;
-  height: 48px;
-  width: 48px;
-  border-radius: 100%;
+  height: 32px;
+  width: 32px;
+  border-radius: $spacing--xs;
   margin: $spacing--sm;
-}
-
-.surface-1,
-.surface-2,
-.surface-3,
-.surface-4 {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 132px;
-  width: 100%;
-  font-weight: 700;
-  border-radius: $spacing--sm;
-  @include breakpoint(sm) {
-    height: 160px;
-  }
-  @include breakpoint(md) {
-    height: 196px;
-  }
 }
 
 .surface-1 {
@@ -144,6 +132,26 @@ main {
 }
 
 .swatch-3 {
+  background-color: var(--text2);
+}
+
+.swatch-4 {
+  background-color: var(--text1);
+}
+
+.swatch-5 {
+  background-color: var(--text2);
+}
+
+.swatch-6 {
+  background-color: var(--text1);
+}
+
+.swatch-7 {
+  background-color: var(--text2);
+}
+
+.swatch-8 {
   background-color: var(--text2);
 }
 

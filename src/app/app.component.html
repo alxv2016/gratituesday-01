@@ -2,13 +2,13 @@
 <main>
   <section>
     <div class="surfaces">
-      <div class="surface-{{ i + 1 }} elevate" *ngFor="let surface of surfaces; index as i">{{ surface }}</div>
+      <div class="surface surface-{{ i + 1 }} elevate" *ngFor="let surface of surfaces; index as i">{{ surface }}</div>
     </div>
   </section>
   <section>
     <div class="palettes">
       <p class="palette" *ngFor="let swatch of swatches; index as i">
-        <span class="elevate swatch-{{ i + 1 }}"></span>{{ swatch }}
+        <span class="elevate swatch swatch-{{ i + 1 }}"></span>{{ swatch }}
       </p>
     </div>
     <div class="palettes__description">
@@ -24,8 +24,8 @@
         calculating the saturation and lightness of one brand colour.
       </p>
       <p>
-        This demo of an adaptive colour scheme for Angular was created following Adam Argyle's article on
-        <a href="https://web.dev/building-a-color-scheme/" target="_blank">building a color scheme</a>
+        This demo of an adaptive colour scheme for Angular was created based on Adam Argyle's article:
+        <a href="https://web.dev/building-a-color-scheme/" target="_blank">Building a color scheme</a>
       </p>
     </div>
   </section>

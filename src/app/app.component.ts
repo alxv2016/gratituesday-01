@@ -35,8 +35,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       label: 'Dim',
     },
   ];
-  swatches = ['Brand', 'Text Color 1', 'Text Color 2'];
-  surfaces = ['Surface 1', 'Surface 2', 'Surface 3', 'Surface 4'];
+  swatches = ['Brand', 'Accent 1', 'Accent 2', 'Text Color 1', 'Text Color 2', 'Success', 'Warning', 'Danger'];
+  surfaces = ['Surface 1', 'Surface 2', 'Surface 3', 'Surface 4', 'Surface 5', 'Surface 6'];
   @ViewChild(BottomPaneDirective, {static: true}) bottomPaneHost!: BottomPaneDirective;
   constructor(@Inject(DOCUMENT) private document: Document, private fb: FormBuilder, private render: Renderer2) {}
 
