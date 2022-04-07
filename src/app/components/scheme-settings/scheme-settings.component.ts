@@ -10,6 +10,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {SchemeService} from 'src/app/services/scheme-service.service';
 
 @Component({
   host: {class: 'c-scheme-settings'},
@@ -45,7 +46,12 @@ export class SchemeSettingsComponent implements OnInit {
   @ViewChild('hueSlider', {static: true}) hueSlider!: ElementRef;
   @ViewChild('satSlider', {static: true}) satSlider!: ElementRef;
   @ViewChild('lightSlider', {static: true}) lightSlider!: ElementRef;
-  constructor(@Inject(DOCUMENT) private document: Document, private fb: FormBuilder, private render: Renderer2) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private fb: FormBuilder,
+    private render: Renderer2,
+    private scheme: SchemeService
+  ) {}
 
   private calcPercent(value: number) {
     const percent = (value / 360) * 100;
@@ -65,14 +71,14 @@ export class SchemeSettingsComponent implements OnInit {
   ngOnInit(): void {
     const doc = this.document.firstElementChild;
     this.themeForm = this.fb.group({
-      scheme: ['auto'],
+      scheme: [this.scheme.getColorScheme()],
       hue: [72],
       saturation: [100],
       lightness: [55],
     });
     this.setTrackFill();
     this.themeForm.valueChanges.subscribe((x) => {
-      this.render.setAttribute(doc, 'color-scheme', x.scheme);
+      // this.render.setAttribute(doc, 'color-scheme', x.scheme);
       this.render.setAttribute(
         doc,
         'style',
@@ -81,6 +87,19 @@ export class SchemeSettingsComponent implements OnInit {
       this.render.setAttribute(this.hueSlider.nativeElement, 'style', `--track-fill:${this.calcPercent(x.hue)}%;`);
       this.render.setAttribute(this.satSlider.nativeElement, 'style', `--track-fill:${x.saturation}%;`);
       this.render.setAttribute(this.lightSlider.nativeElement, 'style', `--track-fill:${x.lightness}%;`);
+      switch (true) {
+        case x.scheme === 'light':
+          this.scheme.selectScheme(x.scheme);
+          break;
+        case x.scheme === 'dark':
+          this.scheme.selectScheme(x.scheme);
+          break;
+        case x.scheme === 'dim':
+          this.scheme.selectScheme(x.scheme);
+          break;
+        default:
+          this.scheme.selectScheme(x.scheme);
+      }
     });
   }
 }

@@ -1,5 +1,6 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, Injector, OnInit} from '@angular/core';
 import {AppComponent} from 'src/app/app.component';
+import {SchemeService} from 'src/app/services/scheme-service.service';
 import {BottomPaneService} from '../bottom-pane/bottom-pane.service';
 import {SchemeSettingsComponent} from '../scheme-settings/scheme-settings.component';
 
@@ -11,9 +12,11 @@ import {SchemeSettingsComponent} from '../scheme-settings/scheme-settings.compon
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
-  constructor(private bp: BottomPaneService, private inject: Injector) {}
+  constructor(private bp: BottomPaneService, private inject: Injector, private scheme: SchemeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.scheme.schemeState$.subscribe();
+  }
 
   openSettings(): void {
     this.bp.createBottomPane(SchemeSettingsComponent, 'Settings');

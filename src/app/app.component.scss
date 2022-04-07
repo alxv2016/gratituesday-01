@@ -62,7 +62,7 @@ main {
   max-width: 768px;
   margin: auto;
   display: grid;
-  margin-top: $layout--md;
+  margin-top: $layout--lg;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: $spacing--lg;
   align-items: center;
@@ -83,7 +83,10 @@ main {
     width: 100%;
     max-width: 568px;
     margin: auto;
-    margin-top: $layout--md;
+    margin-top: $layout--lg;
+    @include breakpoint(md) {
+      margin-top: $layout--xl;
+    }
   }
 }
 
