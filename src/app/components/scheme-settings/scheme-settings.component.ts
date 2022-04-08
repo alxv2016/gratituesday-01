@@ -70,20 +70,22 @@ export class SchemeSettingsComponent implements OnInit {
 
   ngOnInit(): void {
     const doc = this.document.firstElementChild;
+    const hsl = this.scheme.getHSL();
     this.themeForm = this.fb.group({
       scheme: [this.scheme.getColorScheme()],
-      hue: [72],
-      saturation: [100],
-      lightness: [55],
+      hue: [hsl ? hsl[0] : 75],
+      saturation: [hsl ? hsl[1] : 100],
+      lightness: [hsl ? hsl[2] : 55],
     });
+    console.log(this.themeForm.value);
     this.setTrackFill();
     this.themeForm.valueChanges.subscribe((x) => {
-      // this.render.setAttribute(doc, 'color-scheme', x.scheme);
       this.render.setAttribute(
         doc,
         'style',
         `--brand-hue:${x.hue}; --brand-saturation:${x.saturation}%; --brand-lightness:${x.lightness}%`
       );
+      this.scheme.setHSL(x.hue, x.saturation, x.lightness);
       this.render.setAttribute(this.hueSlider.nativeElement, 'style', `--track-fill:${this.calcPercent(x.hue)}%;`);
       this.render.setAttribute(this.satSlider.nativeElement, 'style', `--track-fill:${x.saturation}%;`);
       this.render.setAttribute(this.lightSlider.nativeElement, 'style', `--track-fill:${x.lightness}%;`);

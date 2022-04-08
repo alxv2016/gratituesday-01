@@ -92,6 +92,19 @@ export class SchemeService {
     );
   }
 
+  setHSL(h: string, s: string, l: string): void {
+    localStorage.setItem('hsl', `${h} ${s} ${l}`);
+  }
+
+  getHSL(): string[] | null {
+    if (localStorage.getItem('hsl')) {
+      const hsl = localStorage.getItem('hsl');
+      const hslValues = hsl!.split(' ');
+      return hslValues;
+    }
+    return null;
+  }
+
   selectScheme(scheme: string): void {
     schemePreference.scheme = scheme;
     this._initialState.next(schemePreference);
