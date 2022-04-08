@@ -46,12 +46,7 @@ export class SchemeSettingsComponent implements OnInit {
   @ViewChild('hueSlider', {static: true}) hueSlider!: ElementRef;
   @ViewChild('satSlider', {static: true}) satSlider!: ElementRef;
   @ViewChild('lightSlider', {static: true}) lightSlider!: ElementRef;
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private fb: FormBuilder,
-    private render: Renderer2,
-    private scheme: SchemeService
-  ) {}
+  constructor(private fb: FormBuilder, private render: Renderer2, private scheme: SchemeService) {}
 
   private calcPercent(value: number) {
     const percent = (value / 360) * 100;
@@ -69,23 +64,18 @@ export class SchemeSettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const doc = this.document.firstElementChild;
     const hsl = this.scheme.getHSL();
+    const rootHSL = this.scheme.getRootHSL();
     this.themeForm = this.fb.group({
       scheme: [this.scheme.getColorScheme()],
-      hue: [hsl ? hsl[0] : 75],
-      saturation: [hsl ? hsl[1] : 100],
-      lightness: [hsl ? hsl[2] : 55],
+      hue: [hsl ? hsl[0] : rootHSL[0]],
+      saturation: [hsl ? hsl[1] : rootHSL[1]],
+      lightness: [hsl ? hsl[2] : rootHSL[2]],
     });
-    console.log(this.themeForm.value);
     this.setTrackFill();
     this.themeForm.valueChanges.subscribe((x) => {
-      this.render.setAttribute(
-        doc,
-        'style',
-        `--brand-hue:${x.hue}; --brand-saturation:${x.saturation}%; --brand-lightness:${x.lightness}%`
-      );
       this.scheme.setHSL(x.hue, x.saturation, x.lightness);
+      this.scheme.setCustomScheme(x.hue, x.saturation, x.lightness);
       this.render.setAttribute(this.hueSlider.nativeElement, 'style', `--track-fill:${this.calcPercent(x.hue)}%;`);
       this.render.setAttribute(this.satSlider.nativeElement, 'style', `--track-fill:${x.saturation}%;`);
       this.render.setAttribute(this.lightSlider.nativeElement, 'style', `--track-fill:${x.lightness}%;`);

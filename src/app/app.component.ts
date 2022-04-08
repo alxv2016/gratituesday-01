@@ -12,7 +12,7 @@ import {SchemeService} from './services/scheme-service.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   title = 'adaptive-color-scheme';
   colorScheme = [
     {
@@ -39,28 +39,16 @@ export class AppComponent implements OnInit, AfterViewInit {
   swatches = ['Brand', 'Accent 1', 'Accent 2', 'Text Color 1', 'Text Color 2', 'Success', 'Warning', 'Danger'];
   surfaces = ['Surface 1', 'Surface 2', 'Surface 3', 'Surface 4', 'Surface 5', 'Surface 6'];
   @ViewChild(BottomPaneDirective, {static: true}) bottomPaneHost!: BottomPaneDirective;
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private fb: FormBuilder,
-    private render: Renderer2,
-    private scheme: SchemeService
-  ) {}
+  constructor(private fb: FormBuilder, private scheme: SchemeService) {}
 
   private detectCustomeScheme(): void {
-    const doc = this.document.firstElementChild;
     const hsl = this.scheme.getHSL();
     if (hsl) {
-      this.render.setAttribute(
-        doc,
-        'style',
-        `--brand-hue:${hsl[0]}; --brand-saturation:${hsl[1]}%; --brand-lightness:${hsl[2]}%`
-      );
+      this.scheme.setCustomScheme(hsl[0], hsl[1], hsl[2]);
     }
   }
 
   ngOnInit(): void {
     this.detectCustomeScheme();
   }
-
-  ngAfterViewInit(): void {}
 }

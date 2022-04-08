@@ -1,21 +1,10 @@
 import {Inject, Injectable, Renderer2} from '@angular/core';
-import {
-  BehaviorSubject,
-  catchError,
-  distinctUntilChanged,
-  fromEvent,
-  map,
-  Observable,
-  of,
-  Subject,
-  switchMap,
-  tap,
-} from 'rxjs';
+import {catchError, fromEvent, map, Observable, of, Subject, switchMap, tap} from 'rxjs';
 import {BreakpointObserver, MediaMatcher} from '@angular/cdk/layout';
 import {DOCUMENT} from '@angular/common';
 
 // Our dark mode interface
-export interface SchemePreference {
+interface SchemePreference {
   scheme: string;
 }
 // Initial state for dark mode
@@ -58,7 +47,7 @@ export class SchemeService {
     localStorage.setItem(this.storageKey, scheme);
     this.reflectPreference(scheme);
   }
-
+  // Reflect preference
   private reflectPreference(scheme: string): void {
     const doc = this.document.firstElementChild;
     switch (true) {
@@ -77,7 +66,7 @@ export class SchemeService {
   }
 
   // Observes match media event changes through media matcher
-  private checkDarkMode(): Observable<any> {
+  private checkDarkMode(): Observable<SchemePreference> {
     return fromEvent<MediaQueryListEvent>(this.mediaMatcher.matchMedia('(prefers-color-scheme: dark)'), 'change').pipe(
       map((state) => {
         if (state.matches) {
@@ -100,9 +89,23 @@ export class SchemeService {
     if (localStorage.getItem('hsl')) {
       const hsl = localStorage.getItem('hsl');
       const hslValues = hsl!.split(' ');
+      console.log(hsl);
       return hslValues;
     }
     return null;
+  }
+
+  getRootHSL(): string[] {
+    const doc = this.document.firstElementChild!;
+    const h = getComputedStyle(doc).getPropertyValue('--brand-hue').trim();
+    const s = getComputedStyle(doc).getPropertyValue('--brand-saturation').slice(0, -1).trim();
+    const l = getComputedStyle(doc).getPropertyValue('--brand-lightness').slice(0, -1).trim();
+    return [h, s, l];
+  }
+
+  setCustomScheme(h: string, s: string, l: string): void {
+    const doc = this.document.firstElementChild!;
+    doc.setAttribute('style', `--brand-hue:${h}; --brand-saturation:${s}%; --brand-lightness:${l}%`);
   }
 
   selectScheme(scheme: string): void {
