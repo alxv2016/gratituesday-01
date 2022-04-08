@@ -58,7 +58,7 @@
   --danger-light: hsl(var(--danger-hue) var(--danger-saturation) var(--danger-lightness));
   // Text
   --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
-  --text2-light: hsl(var(--brand-hue) 30% 30%);
+  --text2-light: hsl(var(--brand-hue) 20% 20%);
   // Surfaces
   --surface1-light: hsl(var(--brand-hue) 10% 95%);
   --surface2-light: hsl(var(--brand-hue) 15% 94%);
@@ -72,27 +72,45 @@
 
   // Dark
   // brand
-  --brand-dark: hsl(var(--brand-hue) calc(var(--brand-saturation) / 2) calc(var(--brand-lightness) / 1.5));
+  --brand-dark: hsl(var(--brand-hue) var(--brand-saturation) 40%);
+  --accent1-dark: hsl(var(--accent1-hue) var(--accent1-saturation) 40%);
+  --accent2-dark: hsl(var(--accent2-hue) var(--accent2-saturation) 60%);
+  // Semantic colors
+  --success-dark: hsl(var(--success-hue) var(--success-saturation) 70%);
+  --warning-dark: hsl(var(--warning-hue) var(--warning-saturation) 60%);
+  --danger-dark: hsl(var(--danger-hue) var(--danger-saturation) 70%);
   // Text
-  --text1-dark: hsl(var(--brand-hue) 15% 85%);
-  --text2-dark: hsl(var(--brand-hue) 5% 65%);
+  --text1-dark: hsl(var(--brand-hue) 10% 90%);
+  --text2-dark: hsl(var(--brand-hue) 20% 80%);
   // Surfaces
-  --surface1-dark: hsl(var(--brand-hue) 10% 10%);
-  --surface2-dark: hsl(var(--brand-hue) 10% 15%);
-  --surface3-dark: hsl(var(--brand-hue) 5% 20%);
-  --surface4-dark: hsl(var(--brand-hue) 5% 25%);
+  --surface1-dark: hsl(var(--brand-hue) 5% 8%);
+  --surface2-dark: hsl(var(--brand-hue) 5% 9%);
+  --surface3-dark: hsl(var(--brand-hue) 5% 10%);
+  --surface4-dark: hsl(var(--brand-hue) 5% 11%);
+  --surface5-dark: hsl(var(--brand-hue) 5% 12%);
+  --surface6-dark: hsl(var(--brand-hue) 5% 13%);
   // Shadows
   --surface-shadow-dark: var(--brand-hue) 50% 3%;
   --shadow-strength-dark: 0.8;
 
   // Dim
-  --brand-dim: hsl(var(--brand-hue) calc(var(--brand-saturation) / 1.25) calc(var(--brand-lightness) / 1.25));
-  --text1-dim: hsl(var(--brand-hue) 15% 75%);
-  --text2-dim: hsl(var(--brand-hue) 10% 61%);
-  --surface1-dim: hsl(var(--brand-hue) 10% 20%);
-  --surface2-dim: hsl(var(--brand-hue) 10% 25%);
-  --surface3-dim: hsl(var(--brand-hue) 5% 30%);
-  --surface4-dim: hsl(var(--brand-hue) 5% 35%);
+  --brand-dim: hsl(var(--brand-hue) 20% 40%);
+  --accent1-dim: hsl(var(--accent1-hue) 40% 50%);
+  --accent2-dim: hsl(var(--accent2-hue) 30% 50%);
+  // Semantic colors
+  --success-dim: hsl(var(--success-hue) 40% 50%);
+  --warning-dim: hsl(var(--warning-hue) 40% 60%);
+  --danger-dim: hsl(var(--danger-hue) 40% 60%);
+  // Text
+  --text1-dim: hsl(var(--brand-hue) 10% 70%);
+  --text2-dim: hsl(var(--brand-hue) 10% 60%);
+  --surface1-dim: hsl(var(--brand-hue) 5% 20%);
+  --surface2-dim: hsl(var(--brand-hue) 5% 21%);
+  --surface3-dim: hsl(var(--brand-hue) 5% 22%);
+  --surface4-dim: hsl(var(--brand-hue) 6% 23%);
+  --surface5-dim: hsl(var(--brand-hue) 6% 24%);
+  --surface6-dim: hsl(var(--brand-hue) 6% 25%);
+
   --surface-shadow-dim: var(--brand-hue) 30% 13%;
   --shadow-strength-dim: 0.2;
 }
@@ -124,12 +142,20 @@
     color-scheme: dark;
 
     --brand: var(--brand-dark);
+    --accent1: var(--accent1-dark);
+    --accent2: var(--accent2-dark);
+    --success: var(--success-dark);
+    --warning: var(--warning-dark);
+    --danger: var(--danger-dark);
     --text1: var(--text1-dark);
     --text2: var(--text2-dark);
     --surface1: var(--surface1-dark);
     --surface2: var(--surface2-dark);
     --surface3: var(--surface3-dark);
     --surface4: var(--surface4-dark);
+    --surface5: var(--surface5-dark);
+    --surface6: var(--surface6-dark);
+    // Shadows
     --surface-shadow: var(--surface-shadow-dark);
     --shadow-strength: var(--shadow-strength-dark);
   }
@@ -158,6 +184,7 @@
   --surface4: var(--surface4-light);
   --surface5: var(--surface5-light);
   --surface6: var(--surface6-light);
+  // Shadows
   --surface-shadow: var(--surface-shadow-light);
   --shadow-strength: var(--shadow-strength-light);
 }
@@ -166,12 +193,20 @@
   color-scheme: dark;
 
   --brand: var(--brand-dark);
+  --accent1: var(--accent1-dark);
+  --accent2: var(--accent2-dark);
+  --success: var(--success-dark);
+  --warning: var(--warning-dark);
+  --danger: var(--danger-dark);
   --text1: var(--text1-dark);
   --text2: var(--text2-dark);
   --surface1: var(--surface1-dark);
   --surface2: var(--surface2-dark);
   --surface3: var(--surface3-dark);
   --surface4: var(--surface4-dark);
+  --surface5: var(--surface5-dark);
+  --surface6: var(--surface6-dark);
+  // Shadows
   --surface-shadow: var(--surface-shadow-dark);
   --shadow-strength: var(--shadow-strength-dark);
 }
@@ -180,12 +215,20 @@
   color-scheme: dark;
 
   --brand: var(--brand-dim);
+  --accent1: var(--accent1-dim);
+  --accent2: var(--accent2-dim);
+  --success: var(--success-dim);
+  --warning: var(--warning-dim);
+  --danger: var(--danger-dim);
   --text1: var(--text1-dim);
   --text2: var(--text2-dim);
   --surface1: var(--surface1-dim);
   --surface2: var(--surface2-dim);
   --surface3: var(--surface3-dim);
   --surface4: var(--surface4-dim);
+  --surface5: var(--surface5-dim);
+  --surface6: var(--surface6-dim);
+  // Shadows
   --surface-shadow: var(--surface-shadow-dim);
   --shadow-strength: var(--shadow-strength-dim);
 }
