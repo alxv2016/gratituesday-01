@@ -126,16 +126,26 @@ main {
   color: var(--text1);
 }
 
+.surface-5 {
+  background-color: var(--surface5);
+  color: var(--text1);
+}
+
+.surface-6 {
+  background-color: var(--surface6);
+  color: var(--text1);
+}
+
 .swatch-1 {
   background-color: var(--brand);
 }
 
 .swatch-2 {
-  background-color: var(--text1);
+  background-color: var(--accent1);
 }
 
 .swatch-3 {
-  background-color: var(--text2);
+  background-color: var(--accent2);
 }
 
 .swatch-4 {
@@ -147,15 +157,15 @@ main {
 }
 
 .swatch-6 {
-  background-color: var(--text1);
+  background-color: var(--success);
 }
 
 .swatch-7 {
-  background-color: var(--text2);
+  background-color: var(--warning);
 }
 
 .swatch-8 {
-  background-color: var(--text2);
+  background-color: var(--danger);
 }
 
 .text-1 {
