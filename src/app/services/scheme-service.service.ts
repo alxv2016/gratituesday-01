@@ -85,6 +85,12 @@ export class SchemeService {
     localStorage.setItem('hue', `${h}`);
   }
 
+  resetHue(): void {
+    const doc = this.document.firstElementChild!;
+    localStorage.removeItem('hue');
+    doc.removeAttribute('style');
+  }
+
   getHue(): string | null {
     if (localStorage.getItem('hue')) {
       const hue = localStorage.getItem('hue');

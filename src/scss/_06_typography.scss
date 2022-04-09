@@ -26,9 +26,12 @@ form legend {
 .overline {
   display: inline-block;
   line-height: $heading-line-height;
-  font-size: $subtitle;
+  font-size: $body--1;
   font-weight: 500;
   @include breakpoint(md) {
+    font-size: $subtitle;
+  }
+  @include breakpoint(lg) {
     font-size: $subtitle--2;
   }
 }
@@ -39,13 +42,13 @@ form legend {
   line-height: $headline-line-height;
   font-size: $huge--title;
   @include breakpoint(sm) {
-    font-size: $headliner--1;
+    font-size: $headliner--1 * 1.025;
   }
   @include breakpoint(md) {
-    font-size: $headliner--2;
+    font-size: $headliner--2 * 1.125;
   }
   @include breakpoint(lg) {
-    font-size: $headliner--3;
+    font-size: $headliner--3 * 1.25;
   }
   &:first-of-type {
     margin-top: 0;

@@ -35,7 +35,7 @@ body {
 }
 // Links
 a {
-  //color: $link-color;
+  color: var(--accent2);
   text-decoration: underline;
   // Remove the gray background on active links in IE 11.
   background-color: transparent;

@@ -19,7 +19,11 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   openSettings(): void {
-    this.bp.createBottomPane(SchemeSettingsComponent, 'Settings');
+    this.bp.createBottomPane(SchemeSettingsComponent, 'Color scheme settings');
+  }
+
+  resetHue(): void {
+    this.scheme.resetHue();
   }
 
   ngAfterViewInit(): void {

@@ -43,6 +43,7 @@ export class SchemeSettingsComponent implements OnInit {
     },
   ];
   themeForm!: FormGroup;
+  colors = ['Brand', 'Accent 1', 'Accent 2', 'Text 1', 'Text 2'];
   @ViewChild('hueSlider', {static: true}) hueSlider!: ElementRef;
   @ViewChild('satSlider', {static: true}) satSlider!: ElementRef;
   @ViewChild('lightSlider', {static: true}) lightSlider!: ElementRef;

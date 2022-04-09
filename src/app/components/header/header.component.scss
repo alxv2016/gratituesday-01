@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    max-width: 1024px;
+    max-width: $max-width;
     min-height: 68px;
     flex-shrink: 0;
     color: currentColor;
@@ -62,7 +62,7 @@
 }
 
 .dot {
-  color: var(--brand);
+  color: var(--accent1);
 }
 
 .header-btn {
@@ -78,7 +78,7 @@
   transition: background 320ms ease;
   &:hover,
   &:focus {
-    background-color: var(--surface4);
+    background-color: var(--surface6);
   }
   svg {
     height: 24px;

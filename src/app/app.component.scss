@@ -9,7 +9,7 @@
 
 main {
   width: 100%;
-  max-width: 768px;
+  max-width: $max-width;
   @include container-padding;
   margin-top: $layout--md;
   padding-bottom: $layout--lg !important;
@@ -46,9 +46,6 @@ main {
     margin-top: $layout--lg;
     grid-template-columns: repeat(6, 1fr);
   }
-  // @include breakpoint(md) {
-  //   grid-template-columns: repeat(3, 196px);
-  // }
 }
 
 .brand-swatches {
@@ -131,6 +128,9 @@ main {
 .surface {
   height: 48px;
   padding: $spacing--sm;
+  span {
+    color: var(--text1);
+  }
   @include breakpoint(sm) {
     height: 60px;
   }
@@ -246,32 +246,26 @@ main {
 
 .surface-1 {
   background-color: var(--surface1);
-  color: var(--text2);
 }
 
 .surface-2 {
   background-color: var(--surface2);
-  color: var(--text2);
 }
 
 .surface-3 {
   background-color: var(--surface3);
-  color: var(--text1);
 }
 
 .surface-4 {
   background-color: var(--surface4);
-  color: var(--text1);
 }
 
 .surface-5 {
   background-color: var(--surface5);
-  color: var(--text1);
 }
 
 .surface-6 {
   background-color: var(--surface6);
-  color: var(--text1);
 }
 
 .swatch-1 {
@@ -290,7 +284,7 @@ main {
 }
 
 .text-1 {
-  color: var(--surface1);
+  color: var(--textLight);
   background-color: var(--text1);
   // grid-column:  2 / span 1;
   // @include breakpoint(sm) {
@@ -317,112 +311,4 @@ main {
 
 .semantic-3 {
   background-color: var(--danger);
-}
-
-.rad-shadow {
-  box-shadow: 0 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
-    0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.01)),
-    0 12.5px 10px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.02)),
-    0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.02)),
-    0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
-    0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
-}
-
-fieldset {
-  border: none;
-}
-
-legend {
-  font-size: $subtitle;
-  font-weight: 700;
-}
-
-.radio-group {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  @include breakpoint(sm) {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-.cr {
-  position: relative;
-}
-
-.cr ~ .cr {
-  margin-left: 0;
-  margin-top: $spacing--md;
-  @include breakpoint(sm) {
-    margin-top: 0;
-    margin-left: $spacing--xl;
-  }
-}
-
-// hide native buttons
-.radio {
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  opacity: 0;
-  pointer-events: none;
-}
-
-// label
-.radio + label {
-  display: inline-flex;
-  align-items: flex-start;
-  user-select: none;
-  cursor: pointer;
-  line-height: 1.5;
-}
-
-// custom buttons - basic style
-.radio + label::before {
-  content: '';
-  display: inline-block;
-  position: relative;
-  width: 18px;
-  height: 18px;
-  top: calc((1em * 1.5 - 18px) / 2);
-  background-color: var(--surface4);
-  margin-right: 8px; // gap between custom input and label
-  transition: transform 0.2s, border 0.2s;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex-shrink: 0;
-  border: 2px solid var(--text2);
-  border-radius: 50%;
-}
-
-// :checked
-.radio:checked + label::before {
-  background-color: var(--brand);
-  box-shadow: none;
-  border-color: var(--brand);
-  transition: transform 0.2s;
-  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='8' fill='white'/%3E%3C/svg%3E%0A");
-  background-size: 8px;
-}
-
-// :active
-.radio:active + label::before {
-  transform: scale(0.8);
-  transition: transform 0.2s;
-}
-
-// :checked:active
-.radio:checked:active + label::before {
-  transform: none;
-  transition: none;
-}
-
-// :focus
-.radio:checked:active + label::before,
-.radio:focus + label::before {
-  outline: 5px auto Highlight;
-  outline: 5px auto -webkit-focus-ring-color;
 }

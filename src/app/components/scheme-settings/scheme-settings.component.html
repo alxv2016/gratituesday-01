@@ -1,6 +1,9 @@
 <form class="theme-selection" [formGroup]="themeForm">
+  <div class="surfaces">
+    <div class="surface swatch-{{ i + 1 }}" *ngFor="let color of colors; index as i">{{ color }}</div>
+  </div>
   <fieldset>
-    <legend>Scheme</legend>
+    <legend class="sr-only">Scheme</legend>
     <div class="radio-group">
       <div class="cr" *ngFor="let control of this.colorScheme">
         <input

@@ -181,7 +181,7 @@ input[type='range']::-webkit-slider-runnable-track {
     */ linear-gradient(
       to right,
       transparent var(--track-fill),
-      var(--surface1) 0%
+      var(--brand) 0%
     ),
     /* colorful fill effect, behind track surface fill */ var(--brand) fixed;
 }
@@ -189,10 +189,94 @@ input[type='range']::-webkit-slider-runnable-track {
 input[type='range']::-webkit-slider-thumb {
   appearance: none; /* clear styles, make way for mine */
   cursor: ew-resize; /* cursor style to support drag direction */
-  border: 3px solid var(--surface3);
+  border: 3px solid var(--accent2);
   block-size: var(--thumb-size);
   inline-size: var(--thumb-size);
   margin-top: var(--thumb-offset);
   border-radius: 50%;
-  background: var(--brand) fixed;
+  background: var(--accent2) fixed;
+}
+
+.surfaces {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  border-top: 1px solid currentColor;
+  border-bottom: 4px solid currentColor;
+  margin-bottom: $spacing--xl;
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  // @include breakpoint(md) {
+  //   grid-template-columns: repeat(3, 196px);
+  // }
+}
+
+.surface {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: $overline;
+
+  &:nth-child(2) {
+    border-left: 1px solid currentColor;
+    @include breakpoint(sm) {
+      border: none;
+    }
+  }
+
+  &:nth-child(3) {
+    border-top: 1px solid currentColor;
+    @include breakpoint(sm) {
+      border: none;
+    }
+  }
+
+  &:nth-child(n + 4) {
+    border-top: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+    @include breakpoint(sm) {
+      border-top: 0;
+    }
+  }
+  &:nth-child(n + 2) {
+    @include breakpoint(sm) {
+      border-left: 1px solid currentColor;
+    }
+  }
+}
+
+.surface {
+  height: 48px;
+  padding: $spacing--sm;
+  @include breakpoint(sm) {
+    height: 60px;
+  }
+}
+
+.swatch-1 {
+  background-color: var(--brand);
+  grid-column: 1 / span 2;
+}
+
+.swatch-2 {
+  background-color: var(--accent1);
+}
+
+.swatch-3 {
+  background-color: var(--accent2);
+}
+
+.swatch-4 {
+  color: var(--surface1);
+  background-color: var(--text1);
+}
+
+.swatch-5 {
+  color: var(--surface1);
+  background-color: var(--text2);
 }

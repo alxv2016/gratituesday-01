@@ -7,8 +7,8 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100vh - 68px);
-  max-width: 768px;
+  height: 100vh;
+  max-width: $max-width;
   overflow: hidden;
   @include container-padding;
 }
@@ -16,13 +16,12 @@
 .graphic {
   position: absolute;
   z-index: -1;
-  top: 2%;
+  top: 4%;
   right: -15%;
   width: 320px;
   height: 320px;
   border-radius: 100%;
-  background-color: currentColor;
-  mix-blend-mode: difference;
+  background-color: var(--accent1);
   @include breakpoint(sm) {
     right: 0;
   }
@@ -30,7 +29,8 @@
     position: relative;
     left: 5%;
     top: -5%;
-    color: white;
+    color: var(--accent2);
+    mix-blend-mode: difference;
     height: 100%;
     width: 100%;
     transform: rotate(24deg);
@@ -62,6 +62,8 @@
   align-items: center;
   font-weight: 500;
   padding-left: $spacing--lg;
+  font-family: $mono-font-family;
+  color: var(--text2);
   &::before {
     position: absolute;
     left: 0;
@@ -69,7 +71,7 @@
     height: 6px;
     width: 6px;
     border-radius: 100%;
-    background-color: currentColor;
+    background-color: var(--brand);
   }
 }
 
@@ -77,6 +79,12 @@
   position: relative;
   width: 100%;
   margin-bottom: $layout--md;
+  .overline {
+    color: var(--text2);
+  }
+  .display {
+    color: var(--text1);
+  }
   @include breakpoint(md) {
     margin-bottom: $layout--lg;
   }
@@ -89,7 +97,9 @@
     padding-bottom: $spacing--xs;
     border-bottom: $spacing--sm solid currentColor;
     p {
+      font-family: $mono-font-family;
       margin: 0;
+      color: var(--text2);
     }
   }
 }
@@ -98,14 +108,18 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  p {
+    color: var(--text2);
+    grid-column: 2 / -1;
+  }
   @include breakpoint(sm) {
     grid-template-columns: repeat(3, 1fr);
   }
   @include breakpoint(md) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  p {
-    grid-column: 2 / -1;
+    grid-template-columns: repeat(4, 1fr);
+    p {
+      grid-column: 3 / -1;
+      padding-left: $spacing--xl;
+    }
   }
 }
