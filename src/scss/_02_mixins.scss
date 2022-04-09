@@ -50,12 +50,11 @@
   }
 }
 
-@mixin frosted-glass($color, $opacity: false) {
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  backdrop-filter: saturate(180%) blur(20px);
-  background-color: rgba($color, 0.8);
+@mixin frosted-glass($hsl, $opacity: false) {
+  backdrop-filter: saturate(180%) blur(24px);
+  background-color: hsla($hsl / 0.75);
   @if $opacity {
-    background-color: rgba($color, $opacity);
+    background-color: hsla($hsl / $opacity);
   }
 }
 

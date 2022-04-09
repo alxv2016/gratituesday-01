@@ -5,7 +5,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
 }
 
 main {
@@ -13,6 +12,7 @@ main {
   max-width: 768px;
   @include container-padding;
   margin-top: $layout--md;
+  padding-bottom: $layout--lg !important;
 }
 
 .details {

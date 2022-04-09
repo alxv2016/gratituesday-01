@@ -9,6 +9,7 @@
   width: 100%;
   height: calc(100vh - 68px);
   max-width: 768px;
+  overflow: hidden;
   @include container-padding;
 }
 
@@ -43,6 +44,7 @@
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
+    margin-top: 68px;
   }
   &__footer {
     position: relative;

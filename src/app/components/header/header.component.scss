@@ -1,14 +1,15 @@
 @import '../../../scss/00_imports';
 
-:host-context(.header) {
-  position: relative;
+:host-context(.c-header) {
+  position: fixed;
   z-index: 3;
   display: block;
   width: 100%;
   min-height: 68px;
+  @include frosted-glass(var(--glass1), 0.75);
 }
 
-.header {
+.c-header {
   &__container {
     position: relative;
     display: flex;

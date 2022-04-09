@@ -49,91 +49,93 @@
 
   // Light
   // Rebuild with variables
-  --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
-  --accent1-light: hsl(var(--accent1-hue) var(--accent1-saturation) var(--accent1-lightness));
-
-  --accent2-light: hsl(var(--accent2-hue) var(--accent2-saturation) var(--accent2-lightness));
+  --brand-light: var(--brand-hue) var(--brand-saturation) var(--brand-lightness);
+  --accent1-light: var(--accent1-hue) var(--accent1-saturation) var(--accent1-lightness);
+  --accent2-light: var(--accent2-hue) var(--accent2-saturation) var(--accent2-lightness);
   // Semantic colors
-  --success-light: hsl(var(--success-hue) var(--success-saturation) var(--success-lightness));
-  --warning-light: hsl(var(--warning-hue) var(--warning-saturation) var(--warning-lightness));
-  --danger-light: hsl(var(--danger-hue) var(--danger-saturation) var(--danger-lightness));
+  --success-light: var(--success-hue) var(--success-saturation) var(--success-lightness);
+  --warning-light: var(--warning-hue) var(--warning-saturation) var(--warning-lightness);
+  --danger-light: var(--danger-hue) var(--danger-saturation) var(--danger-lightness);
   // Text
-  --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
-  --text2-light: hsl(var(--brand-hue) 20% 20%);
+  --text1-light: var(--brand-hue) var(--brand-saturation) 10%;
+  --text2-light: var(--brand-hue) 20% 20%;
   // Surfaces
-  --surface1-light: hsl(var(--brand-hue) 10% 95%);
-  --surface2-light: hsl(var(--brand-hue) 15% 94%);
-  --surface3-light: hsl(var(--brand-hue) 20% 93%);
-  --surface4-light: hsl(var(--brand-hue) 25% 92%);
-  --surface5-light: hsl(var(--brand-hue) 30% 91%);
-  --surface6-light: hsl(var(--brand-hue) 35% 90%);
+  --surface1-light: var(--brand-hue) 10% 95%;
+  --surface2-light: var(--brand-hue) 15% 94%;
+  --surface3-light: var(--brand-hue) 20% 93%;
+  --surface4-light: var(--brand-hue) 25% 92%;
+  --surface5-light: var(--brand-hue) 30% 91%;
+  --surface6-light: var(--brand-hue) 35% 90%;
   // Shadows
   --surface-shadow-light: var(--brand-hue) 10% calc(var(--brand-lightness) / 5);
   --shadow-strength-light: 0.02;
 
   // Dark
   // brand
-  --brand-dark: hsl(var(--brand-hue) var(--brand-saturation) 40%);
-  --accent1-dark: hsl(var(--accent1-hue) var(--accent1-saturation) 40%);
-  --accent2-dark: hsl(var(--accent2-hue) var(--accent2-saturation) 60%);
+  --brand-dark: var(--brand-hue) var(--brand-saturation) 40%;
+  --accent1-dark: var(--accent1-hue) var(--accent1-saturation) 40%;
+  --accent2-dark: var(--accent2-hue) var(--accent2-saturation) 60%;
   // Semantic colors
-  --success-dark: hsl(var(--success-hue) var(--success-saturation) 70%);
-  --warning-dark: hsl(var(--warning-hue) var(--warning-saturation) 60%);
-  --danger-dark: hsl(var(--danger-hue) var(--danger-saturation) 70%);
+  --success-dark: var(--success-hue) var(--success-saturation) 70%;
+  --warning-dark: var(--warning-hue) var(--warning-saturation) 60%;
+  --danger-dark: var(--danger-hue) var(--danger-saturation) 70%;
   // Text
-  --text1-dark: hsl(var(--brand-hue) 10% 90%);
-  --text2-dark: hsl(var(--brand-hue) 20% 80%);
+  --text1-dark: var(--brand-hue) 10% 90%;
+  --text2-dark: var(--brand-hue) 20% 80%;
   // Surfaces
-  --surface1-dark: hsl(var(--brand-hue) 5% 8%);
-  --surface2-dark: hsl(var(--brand-hue) 5% 9%);
-  --surface3-dark: hsl(var(--brand-hue) 5% 10%);
-  --surface4-dark: hsl(var(--brand-hue) 5% 11%);
-  --surface5-dark: hsl(var(--brand-hue) 5% 12%);
-  --surface6-dark: hsl(var(--brand-hue) 5% 13%);
+  --surface1-dark: var(--brand-hue) 5% 8%;
+  --surface2-dark: var(--brand-hue) 5% 9%;
+  --surface3-dark: var(--brand-hue) 5% 10%;
+  --surface4-dark: var(--brand-hue) 5% 11%;
+  --surface5-dark: var(--brand-hue) 5% 12%;
+  --surface6-dark: var(--brand-hue) 5% 13%;
   // Shadows
   --surface-shadow-dark: var(--brand-hue) 50% 3%;
   --shadow-strength-dark: 0.8;
 
   // Dim
-  --brand-dim: hsl(var(--brand-hue) 20% 40%);
-  --accent1-dim: hsl(var(--accent1-hue) 40% 50%);
-  --accent2-dim: hsl(var(--accent2-hue) 30% 50%);
+  --brand-dim: var(--brand-hue) 20% 40%;
+  --accent1-dim: var(--accent1-hue) 40% 50%;
+  --accent2-dim: var(--accent2-hue) 30% 50%;
   // Semantic colors
-  --success-dim: hsl(var(--success-hue) 40% 50%);
-  --warning-dim: hsl(var(--warning-hue) 40% 60%);
-  --danger-dim: hsl(var(--danger-hue) 40% 60%);
+  --success-dim: var(--success-hue) 40% 50%;
+  --warning-dim: var(--warning-hue) 40% 60%;
+  --danger-dim: var(--danger-hue) 40% 60%;
   // Text
-  --text1-dim: hsl(var(--brand-hue) 10% 70%);
-  --text2-dim: hsl(var(--brand-hue) 10% 60%);
-  --surface1-dim: hsl(var(--brand-hue) 5% 20%);
-  --surface2-dim: hsl(var(--brand-hue) 5% 21%);
-  --surface3-dim: hsl(var(--brand-hue) 5% 22%);
-  --surface4-dim: hsl(var(--brand-hue) 6% 23%);
-  --surface5-dim: hsl(var(--brand-hue) 6% 24%);
-  --surface6-dim: hsl(var(--brand-hue) 6% 25%);
-
+  --text1-dim: var(--brand-hue) 10% 70%;
+  --text2-dim: var(--brand-hue) 10% 60%;
+  --surface1-dim: var(--brand-hue) 5% 20%;
+  --surface2-dim: var(--brand-hue) 5% 21%;
+  --surface3-dim: var(--brand-hue) 5% 22%;
+  --surface4-dim: var(--brand-hue) 6% 23%;
+  --surface5-dim: var(--brand-hue) 6% 24%;
+  --surface6-dim: var(--brand-hue) 6% 25%;
+  // Shadows
   --surface-shadow-dim: var(--brand-hue) 30% 13%;
   --shadow-strength-dim: 0.2;
 }
 
 :root {
   color-scheme: light;
-
   /* set defaults */
-  --brand: var(--brand-light);
-  --accent1: var(--accent1-light);
-  --accent2: var(--accent2-light);
-  --success: var(--success-light);
-  --warning: var(--warning-light);
-  --danger: var(--danger-light);
-  --text1: var(--text1-light);
-  --text2: var(--text2-light);
-  --surface1: var(--surface1-light);
-  --surface2: var(--surface2-light);
-  --surface3: var(--surface3-light);
-  --surface4: var(--surface4-light);
-  --surface5: var(--surface5-light);
-  --surface6: var(--surface6-light);
+  --brand: hsla(var(--brand-light) / 1);
+  --accent1: hsla(var(--accent1-light) / 1);
+  --accent2: hsla(var(--accent2-light) / 1);
+  --success: hsla(var(--success-light) / 1);
+  --warning: hsla(var(--warning-light) / 1);
+  --danger: hsla(var(--danger-light) / 1);
+  --text1: hsla(var(--text1-light) / 1);
+  --text2: hsla(var(--text2-light) / 1);
+  --surface1: hsla(var(--surface1-light) / 1);
+  --surface2: hsla(var(--surface2-light) / 1);
+  --surface3: hsla(var(--surface3-light) / 1);
+  --surface4: hsla(var(--surface4-light) / 1);
+  --surface5: hsla(var(--surface5-light) / 1);
+  --surface6: hsla(var(--surface16-light) / 1);
+  --glass1: var(--surface1-light);
+  --glass2: var(--surface2-light);
+  --glass3: var(--surface3-light);
+  --glass4: var(--surface4-light);
   --surface-shadow: var(--surface-shadow-light);
   --shadow-strength: var(--shadow-strength-light);
 }
@@ -141,67 +143,76 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-
-    --brand: var(--brand-dark);
-    --accent1: var(--accent1-dark);
-    --accent2: var(--accent2-dark);
-    --success: var(--success-dark);
-    --warning: var(--warning-dark);
-    --danger: var(--danger-dark);
-    --text1: var(--text1-dark);
-    --text2: var(--text2-dark);
-    --surface1: var(--surface1-dark);
-    --surface2: var(--surface2-dark);
-    --surface3: var(--surface3-dark);
-    --surface4: var(--surface4-dark);
-    --surface5: var(--surface5-dark);
-    --surface6: var(--surface6-dark);
+    --brand: hsla(var(--brand-dark) / 1);
+    --accent1: hsla(var(--accent1-dark) / 1);
+    --accent2: hsla(var(--accent2-dark) / 1);
+    --success: hsla(var(--success-dark) / 1);
+    --warning: hsla(var(--warning-dark) / 1);
+    --danger: hsla(var(--danger-dark) / 1);
+    --text1: hsla(var(--text1-dark) / 1);
+    --text2: hsla(var(--text2-dark) / 1);
+    --surface1: hsla(var(--surface1-dark) / 1);
+    --surface2: hsla(var(--surface2-dark) / 1);
+    --surface3: hsla(var(--surface3-dark) / 1);
+    --surface4: hsla(var(--surface4-dark) / 1);
+    --surface5: hsla(var(--surface5-dark) / 1);
+    --surface6: hsla(var(--surface16-dark) / 1);
+    --glass1: var(--surface1-dark);
+    --glass2: var(--surface2-dark);
+    --glass3: var(--surface3-dark);
+    --glass4: var(--surface4-dark);
     // Shadows
     --surface-shadow: var(--surface-shadow-dark);
     --shadow-strength: var(--shadow-strength-dark);
   }
 }
 
-// Demo setting
+// Demo settings
 [color-scheme='light'] {
   color-scheme: light;
-
-  --brand: var(--brand-light);
-  --accent1: var(--accent1-light);
-  --accent2: var(--accent2-light);
-  --success: var(--success-light);
-  --warning: var(--warning-light);
-  --danger: var(--danger-light);
-  --text1: var(--text1-light);
-  --text2: var(--text2-light);
-  --surface1: var(--surface1-light);
-  --surface2: var(--surface2-light);
-  --surface3: var(--surface3-light);
-  --surface4: var(--surface4-light);
-  --surface5: var(--surface5-light);
-  --surface6: var(--surface6-light);
-  // Shadows
+  /* set defaults */
+  --brand: hsla(var(--brand-light) / 1);
+  --accent1: hsla(var(--accent1-light) / 1);
+  --accent2: hsla(var(--accent2-light) / 1);
+  --success: hsla(var(--success-light) / 1);
+  --warning: hsla(var(--warning-light) / 1);
+  --danger: hsla(var(--danger-light) / 1);
+  --text1: hsla(var(--text1-light) / 1);
+  --text2: hsla(var(--text2-light) / 1);
+  --surface1: hsla(var(--surface1-light) / 1);
+  --surface2: hsla(var(--surface2-light) / 1);
+  --surface3: hsla(var(--surface3-light) / 1);
+  --surface4: hsla(var(--surface4-light) / 1);
+  --surface5: hsla(var(--surface5-light) / 1);
+  --surface6: hsla(var(--surface16-light) / 1);
+  --glass1: var(--surface1-light);
+  --glass2: var(--surface2-light);
+  --glass3: var(--surface3-light);
+  --glass4: var(--surface4-light);
   --surface-shadow: var(--surface-shadow-light);
   --shadow-strength: var(--shadow-strength-light);
 }
 
 [color-scheme='dark'] {
   color-scheme: dark;
-
-  --brand: var(--brand-dark);
-  --accent1: var(--accent1-dark);
-  --accent2: var(--accent2-dark);
-  --success: var(--success-dark);
-  --warning: var(--warning-dark);
-  --danger: var(--danger-dark);
-  --text1: var(--text1-dark);
-  --text2: var(--text2-dark);
-  --surface1: var(--surface1-dark);
-  --surface2: var(--surface2-dark);
-  --surface3: var(--surface3-dark);
-  --surface4: var(--surface4-dark);
-  --surface5: var(--surface5-dark);
-  --surface6: var(--surface6-dark);
+  --brand: hsla(var(--brand-dark) / 1);
+  --accent1: hsla(var(--accent1-dark) / 1);
+  --accent2: hsla(var(--accent2-dark) / 1);
+  --success: hsla(var(--success-dark) / 1);
+  --warning: hsla(var(--warning-dark) / 1);
+  --danger: hsla(var(--danger-dark) / 1);
+  --text1: hsla(var(--text1-dark) / 1);
+  --text2: hsla(var(--text2-dark) / 1);
+  --surface1: hsla(var(--surface1-dark) / 1);
+  --surface2: hsla(var(--surface2-dark) / 1);
+  --surface3: hsla(var(--surface3-dark) / 1);
+  --surface4: hsla(var(--surface4-dark) / 1);
+  --surface5: hsla(var(--surface5-dark) / 1);
+  --surface6: hsla(var(--surface16-dark) / 1);
+  --glass1: var(--surface1-dark);
+  --glass2: var(--surface2-dark);
+  --glass3: var(--surface3-dark);
+  --glass4: var(--surface4-dark);
   // Shadows
   --surface-shadow: var(--surface-shadow-dark);
   --shadow-strength: var(--shadow-strength-dark);
@@ -209,21 +220,24 @@
 
 [color-scheme='dim'] {
   color-scheme: dark;
-
-  --brand: var(--brand-dim);
-  --accent1: var(--accent1-dim);
-  --accent2: var(--accent2-dim);
-  --success: var(--success-dim);
-  --warning: var(--warning-dim);
-  --danger: var(--danger-dim);
-  --text1: var(--text1-dim);
-  --text2: var(--text2-dim);
-  --surface1: var(--surface1-dim);
-  --surface2: var(--surface2-dim);
-  --surface3: var(--surface3-dim);
-  --surface4: var(--surface4-dim);
-  --surface5: var(--surface5-dim);
-  --surface6: var(--surface6-dim);
+  --brand: hsla(var(--brand-dim) / 1);
+  --accent1: hsla(var(--accent1-dim) / 1);
+  --accent2: hsla(var(--accent2-dim) / 1);
+  --success: hsla(var(--success-dim) / 1);
+  --warning: hsla(var(--warning-dim) / 1);
+  --danger: hsla(var(--danger-dim) / 1);
+  --text1: hsla(var(--text1-dim) / 1);
+  --text2: hsla(var(--text2-dim) / 1);
+  --surface1: hsla(var(--surface1-dim) / 1);
+  --surface2: hsla(var(--surface2-dim) / 1);
+  --surface3: hsla(var(--surface3-dim) / 1);
+  --surface4: hsla(var(--surface4-dim) / 1);
+  --surface5: hsla(var(--surface5-dim) / 1);
+  --surface6: hsla(var(--surface16-dim) / 1);
+  --glass1: var(--surface1-dim);
+  --glass2: var(--surface2-dim);
+  --glass3: var(--surface3-dim);
+  --glass4: var(--surface4-dim);
   // Shadows
   --surface-shadow: var(--surface-shadow-dim);
   --shadow-strength: var(--shadow-strength-dim);

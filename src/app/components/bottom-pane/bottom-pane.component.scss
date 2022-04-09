@@ -22,7 +22,7 @@
     left: 0;
     height: inherit;
     width: inherit;
-    //  @include frosted-glass(var(--color-bg-rgb), 0.125);
+    @include frosted-glass(var(--glass1), 0.25);
     will-change: opacity;
     opacity: 0;
     transition: opacity 275ms 75ms ease;
