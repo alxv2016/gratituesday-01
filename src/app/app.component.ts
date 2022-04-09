@@ -36,15 +36,17 @@ export class AppComponent implements OnInit {
       label: 'Dim',
     },
   ];
-  swatches = ['Brand', 'Accent 1', 'Accent 2', 'Text Color 1', 'Text Color 2', 'Success', 'Warning', 'Danger'];
+  brandColors = ['Brand', 'Accent 1', 'Accent 2'];
+  textColors = ['Text 1', 'Text 2'];
+  semanticColors = ['Success', 'Warning', 'Error'];
   surfaces = ['Surface 1', 'Surface 2', 'Surface 3', 'Surface 4', 'Surface 5', 'Surface 6'];
   @ViewChild(BottomPaneDirective, {static: true}) bottomPaneHost!: BottomPaneDirective;
   constructor(private fb: FormBuilder, private scheme: SchemeService) {}
 
   private detectCustomeScheme(): void {
-    const hsl = this.scheme.getHSL();
-    if (hsl) {
-      this.scheme.setCustomScheme(hsl[0], hsl[1], hsl[2]);
+    const hue = this.scheme.getHue();
+    if (hue) {
+      this.scheme.setCustomScheme(hue);
     }
   }
 

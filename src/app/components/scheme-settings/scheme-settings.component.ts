@@ -55,30 +55,30 @@ export class SchemeSettingsComponent implements OnInit {
 
   private setTrackFill(): void {
     const hue = this.themeForm.get('hue')?.value;
-    const sat = this.themeForm.get('saturation')?.value;
-    const light = this.themeForm.get('lightness')?.value;
+    // const sat = this.themeForm.get('saturation')?.value;
+    // const light = this.themeForm.get('lightness')?.value;
 
     this.render.setAttribute(this.hueSlider.nativeElement, 'style', `--track-fill:${this.calcPercent(hue)}%;`);
-    this.render.setAttribute(this.satSlider.nativeElement, 'style', `--track-fill:${sat}%;`);
-    this.render.setAttribute(this.lightSlider.nativeElement, 'style', `--track-fill:${light}%;`);
+    // this.render.setAttribute(this.satSlider.nativeElement, 'style', `--track-fill:${sat}%;`);
+    // this.render.setAttribute(this.lightSlider.nativeElement, 'style', `--track-fill:${light}%;`);
   }
 
   ngOnInit(): void {
-    const hsl = this.scheme.getHSL();
-    const rootHSL = this.scheme.getRootHSL();
+    const hue = this.scheme.getHue();
+    const rootHue = this.scheme.getRootHue();
     this.themeForm = this.fb.group({
       scheme: [this.scheme.getColorScheme()],
-      hue: [hsl ? hsl[0] : rootHSL[0]],
-      saturation: [hsl ? hsl[1] : rootHSL[1]],
-      lightness: [hsl ? hsl[2] : rootHSL[2]],
+      hue: [hue ? hue : rootHue],
+      // saturation: [hsl ? hsl[1] : rootHSL[1]],
+      // lightness: [hsl ? hsl[2] : rootHSL[2]],
     });
     this.setTrackFill();
     this.themeForm.valueChanges.subscribe((x) => {
-      this.scheme.setHSL(x.hue, x.saturation, x.lightness);
-      this.scheme.setCustomScheme(x.hue, x.saturation, x.lightness);
+      this.scheme.setHue(x.hue);
+      this.scheme.setCustomScheme(x.hue);
       this.render.setAttribute(this.hueSlider.nativeElement, 'style', `--track-fill:${this.calcPercent(x.hue)}%;`);
-      this.render.setAttribute(this.satSlider.nativeElement, 'style', `--track-fill:${x.saturation}%;`);
-      this.render.setAttribute(this.lightSlider.nativeElement, 'style', `--track-fill:${x.lightness}%;`);
+      // this.render.setAttribute(this.satSlider.nativeElement, 'style', `--track-fill:${x.saturation}%;`);
+      // this.render.setAttribute(this.lightSlider.nativeElement, 'style', `--track-fill:${x.lightness}%;`);
       switch (true) {
         case x.scheme === 'light':
           this.scheme.selectScheme(x.scheme);

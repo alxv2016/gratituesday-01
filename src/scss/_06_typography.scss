@@ -4,9 +4,6 @@ p {
   @include breakpoint(md) {
     font-size: $body--1;
   }
-  strong {
-    color: color('volt');
-  }
 }
 
 p ~ p {
@@ -24,4 +21,52 @@ form legend {
   line-height: $heading-line-height;
   font-weight: inherit;
   margin: $spacing--xl 0 $spacing--sm;
+}
+
+.overline {
+  display: inline-block;
+  line-height: $heading-line-height;
+  font-size: $subtitle;
+  font-weight: 500;
+  @include breakpoint(md) {
+    font-size: $subtitle--2;
+  }
+}
+
+.display {
+  font-family: $headling-font-family;
+  font-weight: 700;
+  line-height: $headline-line-height;
+  font-size: $huge--title;
+  @include breakpoint(sm) {
+    font-size: $headliner--1;
+  }
+  @include breakpoint(md) {
+    font-size: $headliner--2;
+  }
+  @include breakpoint(lg) {
+    font-size: $headliner--3;
+  }
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.headline {
+  font-family: $headling-font-family;
+  font-weight: 700;
+  line-height: $headline-line-height;
+  font-size: $title--1;
+  margin-bottom: $spacing--xl;
+  @include breakpoint(sm) {
+    font-size: $large--title;
+    margin-bottom: $spacing--2xl;
+  }
+  @include breakpoint(md) {
+    font-size: $huge--title;
+  }
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 }

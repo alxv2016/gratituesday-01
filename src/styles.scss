@@ -27,11 +27,11 @@
   --brand-saturation: 27%;
   --brand-lightness: 35%;
   // Accent1 HSL
-  --accent1-hue: 75;
-  --accent1-saturation: 92%;
+  --accent1-hue: var(--brand-hue);
+  --accent1-saturation: 95%;
   --accent1-lightness: 60%;
   // Accent2 HSL
-  --accent2-hue: 195;
+  --accent2-hue: calc(var(--brand-hue) + 120);
   --accent2-saturation: 55%;
   --accent2-lightness: 40%;
   // Success
@@ -51,6 +51,7 @@
   // Rebuild with variables
   --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
   --accent1-light: hsl(var(--accent1-hue) var(--accent1-saturation) var(--accent1-lightness));
+
   --accent2-light: hsl(var(--accent2-hue) var(--accent2-saturation) var(--accent2-lightness));
   // Semantic colors
   --success-light: hsl(var(--success-hue) var(--success-saturation) var(--success-lightness));

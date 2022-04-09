@@ -1,5 +1,6 @@
 // Base type
 $base-font-family: 'Roboto', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$headling-font-family: 'Playfair Display', serif !default;
 $base-font-size: 1rem !default;
 $headline-line-height: 1.15 !default;
 $heading-line-height: 1.25 !default;
@@ -13,12 +14,6 @@ $breakpoints: (
   lg: 992px,
   xl: 1200px,
   xxl: 1440px,
-) !default;
-// Colors
-$colors: (
-  light: #f9fdfd,
-  neutral: #6f6f6f,
-  dark: #280829,
 ) !default;
 // Type scale
 // Using a modular type scale we define our font size in em units for responsive scaling

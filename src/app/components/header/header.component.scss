@@ -1,7 +1,7 @@
 @import '../../../scss/00_imports';
 
 :host-context(.header) {
-  position: fixed;
+  position: relative;
   z-index: 3;
   display: block;
   width: 100%;
@@ -15,9 +15,11 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    max-width: 1024px;
     min-height: 68px;
     flex-shrink: 0;
     color: currentColor;
+    margin: auto;
     @include container-padding;
   }
   &__brand {

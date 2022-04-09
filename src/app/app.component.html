@@ -1,32 +1,30 @@
 <c-header></c-header>
+<c-hero></c-hero>
 <main>
-  <section>
+  <section class="details">
+    <h2 class="headline">CSS & HSL Magic</h2>
+    <p>
+      Using <strong>CSS variables</strong> and HSL, we can create an adaptive colour scheme that responds to user
+      preference. We can easily define all the colours for light, dark and dim colour schemes by calculating the
+      saturation and lightness of one brand colour.
+    </p>
+    <p>
+      This demo of an adaptive colour scheme for Angular was created based on Adam Argyle's article:
+      <a href="https://web.dev/building-a-color-scheme/" target="_blank">Building a color scheme</a>
+    </p>
     <div class="surfaces">
-      <div class="surface surface-{{ i + 1 }} elevate" *ngFor="let surface of surfaces; index as i">{{ surface }}</div>
+      <div class="surface surface-{{ i + 1 }}" *ngFor="let surface of surfaces; index as i">{{ surface }}</div>
     </div>
-  </section>
-  <section>
-    <div class="palettes">
-      <p class="palette" *ngFor="let swatch of swatches; index as i">
-        <span class="swatch swatch-{{ i + 1 }}"></span>{{ swatch }}
-      </p>
+    <div class="brand-swatches">
+      <div class="surface swatch-{{ i + 1 }}" *ngFor="let swatch of brandColors; index as i">{{ swatch }}</div>
     </div>
-    <div class="palettes__description">
-      <h1>Adaptive color scheme with HSL (Hue, Saturation, Lightness)</h1>
-      <p class="text-1">
-        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl" target="_blank">HSL</a> stands for
-        <strong>hue</strong>, <strong>saturation</strong> and <strong>lightness</strong>. Unlike HEX values and RGB, HSL
-        is much more intuitive and lets us have complete control over saturation and the lightness of the colour.
-      </p>
-      <p class="text-2">
-        Using <strong>CSS variables</strong> and <code>calc()</code> and HSL, we can create an adaptive colour scheme
-        that responds to user preference. We can easily define all the colours for light, dark and dim colour schemes by
-        calculating the saturation and lightness of one brand colour.
-      </p>
-      <p>
-        This demo of an adaptive colour scheme for Angular was created based on Adam Argyle's article:
-        <a href="https://web.dev/building-a-color-scheme/" target="_blank">Building a color scheme</a>
-      </p>
+    <div class="text-swatches">
+      <div class="text-swatch text-{{ i + 1 }}" *ngFor="let text of textColors; index as i">{{ text }}</div>
+    </div>
+    <div class="semantic-swatches">
+      <div class="semantic-swatch semantic-{{ i + 1 }}" *ngFor="let semantic of semanticColors; index as i">
+        {{ semantic }}
+      </div>
     </div>
   </section>
 </main>

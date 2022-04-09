@@ -81,31 +81,27 @@ export class SchemeService {
     );
   }
 
-  setHSL(h: string, s: string, l: string): void {
-    localStorage.setItem('hsl', `${h} ${s} ${l}`);
+  setHue(h: string): void {
+    localStorage.setItem('hue', `${h}`);
   }
 
-  getHSL(): string[] | null {
-    if (localStorage.getItem('hsl')) {
-      const hsl = localStorage.getItem('hsl');
-      const hslValues = hsl!.split(' ');
-      console.log(hsl);
-      return hslValues;
+  getHue(): string | null {
+    if (localStorage.getItem('hue')) {
+      const hue = localStorage.getItem('hue');
+      return hue;
     }
     return null;
   }
 
-  getRootHSL(): string[] {
+  getRootHue(): string {
     const doc = this.document.firstElementChild!;
-    const h = getComputedStyle(doc).getPropertyValue('--brand-hue').trim();
-    const s = getComputedStyle(doc).getPropertyValue('--brand-saturation').slice(0, -1).trim();
-    const l = getComputedStyle(doc).getPropertyValue('--brand-lightness').slice(0, -1).trim();
-    return [h, s, l];
+    const hue = getComputedStyle(doc).getPropertyValue('--brand-hue').trim();
+    return hue;
   }
 
-  setCustomScheme(h: string, s: string, l: string): void {
+  setCustomScheme(hue: string): void {
     const doc = this.document.firstElementChild!;
-    doc.setAttribute('style', `--brand-hue:${h}; --brand-saturation:${s}%; --brand-lightness:${l}%`);
+    doc.setAttribute('style', `--brand-hue:${hue};`);
   }
 
   selectScheme(scheme: string): void {

@@ -12,7 +12,3 @@
     @return white;
   }
 }
-
-@function color($key: 'dark') {
-  @return map-get($colors, $key);
-}

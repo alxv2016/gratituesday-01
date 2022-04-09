@@ -1,0 +1,106 @@
+@import '../../../scss/00_imports';
+
+:host(.c-hero) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 68px);
+  max-width: 768px;
+  @include container-padding;
+}
+
+.graphic {
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  right: -160px;
+  width: 320px;
+  height: 320px;
+  border-radius: 100%;
+  background-color: currentColor;
+  mix-blend-mode: difference;
+  svg {
+    position: relative;
+    left: 10%;
+    top: -10%;
+    color: white;
+    height: 100%;
+    width: 100%;
+    transform: rotate(24deg);
+  }
+}
+
+.c-hero {
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  &__footer {
+    position: relative;
+    width: 100%;
+    padding: $spacing--xl 0;
+    border-top: 1px solid currentColor;
+    border-bottom: 4px solid currentColor;
+    margin-bottom: $layout--md;
+  }
+}
+
+.scroll-hint {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  padding-left: $spacing--lg;
+  &::before {
+    position: absolute;
+    left: 0;
+    content: '';
+    height: 6px;
+    width: 6px;
+    border-radius: 100%;
+    background-color: currentColor;
+  }
+}
+
+.title-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: $layout--md;
+  @include breakpoint(md) {
+    margin-bottom: $layout--lg;
+  }
+  &__footer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $spacing--lg;
+    padding-bottom: $spacing--xs;
+    border-bottom: $spacing--sm solid currentColor;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.content-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include breakpoint(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  p {
+    grid-column: 2 / -1;
+  }
+}
