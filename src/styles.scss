@@ -7,20 +7,8 @@
 @import './scss/05_variables';
 @import './scss/06_typography';
 @import './scss/07_base';
-// Utilities
-.sr-only:not(:focus):not(:active) {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-.no-scroll {
-  overflow: hidden;
-}
-// Colors
+
+// Color Variables
 * {
   // Brand HSL
   --brand-hue: 75;
@@ -46,7 +34,8 @@
   --danger-hue: 360;
   --danger-saturation: 80%;
   --danger-lightness: 64%;
-  --text3-contrast: var(--brand-hue) var(--brand-saturation) 5%;
+  // Contrast
+  --dark-contrast: var(--brand-hue) var(--brand-saturation) 5%;
 
   // Light
   // Rebuild with variables
@@ -60,7 +49,7 @@
   // Text
   --text1-light: var(--brand-hue) var(--brand-saturation) 10%;
   --text2-light: var(--brand-hue) 20% 20%;
-  --text4-reverse-light: var(--brand-hue) var(--brand-saturation) 90%;
+  --reverse-contrast-light: var(--brand-hue) var(--brand-saturation) 90%;
   // Surfaces
   --surface1-light: var(--brand-hue) 10% 95%;
   --surface2-light: var(--brand-hue) 15% 94%;
@@ -84,7 +73,7 @@
   // Text
   --text1-dark: var(--brand-hue) 10% 90%;
   --text2-dark: var(--brand-hue) 20% 80%;
-  --text4-reverse-dark: var(--brand-hue) var(--brand-saturation) 5%;
+  --reverse-contrast-dark: var(--brand-hue) var(--brand-saturation) 5%;
   // Surfaces
   --surface1-dark: var(--brand-hue) 5% 8%;
   --surface2-dark: var(--brand-hue) 5% 9%;
@@ -107,7 +96,7 @@
   // Text
   --text1-dim: var(--brand-hue) 10% 70%;
   --text2-dim: var(--brand-hue) 10% 60%;
-  --text4-reverse-dim: var(--brand-hue) var(--brand-saturation) 5%;
+  --reverse-contrast-dim: var(--brand-hue) var(--brand-saturation) 5%;
   --surface1-dim: var(--brand-hue) 5% 20%;
   --surface2-dim: var(--brand-hue) 5% 21%;
   --surface3-dim: var(--brand-hue) 5% 22%;
@@ -130,8 +119,8 @@
   --danger: hsla(var(--danger-light) / 1);
   --text1: hsla(var(--text1-light) / 1);
   --text2: hsla(var(--text2-light) / 1);
-  --text3: hsla(var(--text3-contrast) / 1);
-  --text4: hsla(var(--text4-reverse-light) / 1);
+  --text3: hsla(var(--dark-contrast) / 1);
+  --text4: hsla(var(--reverse-contrast-light) / 1);
   --surface1: hsla(var(--surface1-light) / 1);
   --surface2: hsla(var(--surface2-light) / 1);
   --surface3: hsla(var(--surface3-light) / 1);
@@ -158,7 +147,7 @@
     --text1: hsla(var(--text1-dark) / 1);
     --text2: hsla(var(--text2-dark) / 1);
     --text3: hsla(var(--text3-contrast) / 1);
-    --text4: hsla(var(--text4-reverse-dark) / 1);
+    --text4: hsla(var(--reverse-contrast-dark) / 1);
     --surface1: hsla(var(--surface1-dark) / 1);
     --surface2: hsla(var(--surface2-dark) / 1);
     --surface3: hsla(var(--surface3-dark) / 1);
@@ -188,7 +177,7 @@
   --text1: hsla(var(--text1-light) / 1);
   --text2: hsla(var(--text2-light) / 1);
   --text3: hsla(var(--text3-contrast) / 1);
-  --text4: hsla(var(--text4-reverse-light) / 1);
+  --text4: hsla(var(--reverse-contrast-light) / 1);
   --surface1: hsla(var(--surface1-light) / 1);
   --surface2: hsla(var(--surface2-light) / 1);
   --surface3: hsla(var(--surface3-light) / 1);
@@ -214,7 +203,7 @@
   --text1: hsla(var(--text1-dark) / 1);
   --text2: hsla(var(--text2-dark) / 1);
   --text3: hsla(var(--text3-contrast) / 1);
-  --text4: hsla(var(--text4-reverse-dark) / 1);
+  --text4: hsla(var(--reverse-contrast-dark) / 1);
   --surface1: hsla(var(--surface1-dark) / 1);
   --surface2: hsla(var(--surface2-dark) / 1);
   --surface3: hsla(var(--surface3-dark) / 1);
@@ -241,7 +230,7 @@
   --text1: hsla(var(--text1-dim) / 1);
   --text2: hsla(var(--text2-dim) / 1);
   --text3: hsla(var(--text3-contrast) / 1);
-  --text4: hsla(var(--text4-reverse-dim) / 1);
+  --text4: hsla(var(--reverse-contrast-dim) / 1);
   --surface1: hsla(var(--surface1-dim) / 1);
   --surface2: hsla(var(--surface2-dim) / 1);
   --surface3: hsla(var(--surface3-dim) / 1);
@@ -255,25 +244,4 @@
   // Shadows
   --surface-shadow: var(--surface-shadow-dim);
   --shadow-strength: var(--shadow-strength-dim);
-}
-
-html {
-  color: var(--text1);
-  background-color: var(--surface1);
-}
-
-.elevate-1 {
-  @include elevate-1();
-}
-
-.elevate-2 {
-  @include elevate-2();
-}
-
-.elevate-3 {
-  @include elevate-3();
-}
-
-.elevate-4 {
-  @include elevate-4();
 }

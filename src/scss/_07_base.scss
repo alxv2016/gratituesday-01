@@ -7,6 +7,8 @@ html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  color: var(--text1);
+  background-color: var(--surface1);
 }
 
 * {
@@ -69,4 +71,34 @@ textarea {
     // for accessibility reasons we add browser focus ring
     outline: -webkit-focus-ring-color auto 5px;
   }
+}
+
+// Utilities
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+.no-scroll {
+  overflow: hidden;
+}
+
+.elevate-1 {
+  @include elevate-1();
+}
+
+.elevate-2 {
+  @include elevate-2();
+}
+
+.elevate-3 {
+  @include elevate-3();
+}
+
+.elevate-4 {
+  @include elevate-4();
 }
