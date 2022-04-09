@@ -221,6 +221,9 @@ input[type='range']::-webkit-slider-thumb {
   justify-content: flex-start;
   width: 100%;
   font-size: $overline;
+  span {
+    color: var(--text3);
+  }
 
   &:nth-child(2) {
     border-left: 1px solid currentColor;
@@ -272,11 +275,16 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .swatch-4 {
-  color: var(--surface1);
   background-color: var(--text1);
 }
 
 .swatch-5 {
-  color: var(--surface1);
   background-color: var(--text2);
+}
+
+.swatch-4,
+.swatch-5 {
+  span {
+    color: var(--text4);
+  }
 }

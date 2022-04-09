@@ -268,6 +268,22 @@ main {
   background-color: var(--surface6);
 }
 
+.swatch-1,
+.swatch-2,
+.swatch-3,
+.semantic-1,
+.semantic-2,
+.semantic-3 {
+  span {
+    color: var(--text3);
+  }
+}
+
+.text-1,
+.text-2 {
+  color: var(--text4);
+}
+
 .swatch-1 {
   background-color: var(--brand);
   @include breakpoint(sm) {
@@ -284,7 +300,6 @@ main {
 }
 
 .text-1 {
-  color: var(--textLight);
   background-color: var(--text1);
   // grid-column:  2 / span 1;
   // @include breakpoint(sm) {
@@ -293,7 +308,6 @@ main {
 }
 
 .text-2 {
-  color: var(--surface1);
   background-color: var(--text2);
   // grid-column: 3 / span 1;
   // @include breakpoint(sm) {

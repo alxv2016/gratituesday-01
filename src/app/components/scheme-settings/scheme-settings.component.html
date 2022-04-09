@@ -1,6 +1,8 @@
 <form class="theme-selection" [formGroup]="themeForm">
   <div class="surfaces">
-    <div class="surface swatch-{{ i + 1 }}" *ngFor="let color of colors; index as i">{{ color }}</div>
+    <div class="surface swatch-{{ i + 1 }}" *ngFor="let color of colors; index as i">
+      <span>{{ color }}</span>
+    </div>
   </div>
   <fieldset>
     <legend class="sr-only">Scheme</legend>
