@@ -191,6 +191,59 @@ main {
   margin: $spacing--sm;
 }
 
+.elevation {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: $spacing--xl;
+  margin-top: $layout--lg;
+  @include breakpoint(sm) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.elevate {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: $overline;
+  height: 88px;
+  padding: 0 $spacing--sm;
+  @include breakpoint(sm) {
+    height: 88px;
+  }
+}
+
+.platform-1,
+.platform-2,
+.platform-3,
+.platform-4 {
+  border-color: currentColor;
+}
+
+.platform-1 {
+  background-color: var(--surface1);
+  border: 2px solid;
+}
+
+.platform-2 {
+  background-color: var(--surface2);
+  border: 4px solid;
+}
+
+.platform-3 {
+  background-color: var(--surface3);
+  border: 8px solid;
+}
+
+.platform-4 {
+  background-color: var(--surface4);
+  border: 16px solid;
+}
+
 .surface-1 {
   background-color: var(--surface1);
   color: var(--text2);

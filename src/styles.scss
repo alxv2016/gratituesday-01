@@ -162,11 +162,6 @@
   }
 }
 
-.elevate {
-  box-shadow: 0 14px 28px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.025)),
-    0 10px 10px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.075));
-}
-
 // Demo setting
 [color-scheme='light'] {
   color-scheme: light;
@@ -237,4 +232,20 @@
 html {
   color: var(--text1);
   background-color: var(--surface1);
+}
+
+.elevate-1 {
+  @include elevate-1();
+}
+
+.elevate-2 {
+  @include elevate-2();
+}
+
+.elevate-3 {
+  @include elevate-3();
+}
+
+.elevate-4 {
+  @include elevate-4();
 }

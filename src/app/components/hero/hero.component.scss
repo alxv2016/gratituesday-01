@@ -15,17 +15,20 @@
 .graphic {
   position: absolute;
   z-index: -1;
-  top: 8%;
-  right: -160px;
+  top: 2%;
+  right: -15%;
   width: 320px;
   height: 320px;
   border-radius: 100%;
   background-color: currentColor;
   mix-blend-mode: difference;
+  @include breakpoint(sm) {
+    right: 0;
+  }
   svg {
     position: relative;
-    left: 10%;
-    top: -10%;
+    left: 5%;
+    top: -5%;
     color: white;
     height: 100%;
     width: 100%;

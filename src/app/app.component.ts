@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
   textColors = ['Text 1', 'Text 2'];
   semanticColors = ['Success', 'Warning', 'Error'];
   surfaces = ['Surface 1', 'Surface 2', 'Surface 3', 'Surface 4', 'Surface 5', 'Surface 6'];
+  elevations = ['Elevation 1', 'Elevation 2', 'Elevation 3', 'Elevation 4'];
   @ViewChild(BottomPaneDirective, {static: true}) bottomPaneHost!: BottomPaneDirective;
   constructor(private fb: FormBuilder, private scheme: SchemeService) {}
 
