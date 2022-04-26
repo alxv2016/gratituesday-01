@@ -14,8 +14,7 @@ export class AppComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document, private render: Renderer2) {}
 
   ngOnInit(): void {
-    // const hsl = `${Math.floor(gsap.utils.random(0, 360))}, 95%, 75%`;
-    // this.render.setProperty(this.document.querySelector('body'), 'style', `--background: ${hsl}`);
-    // this.detectCustomeScheme();
+    const randomHue = Math.floor(gsap.utils.random(0, 360));
+    this.render.setProperty(this.document.querySelector('html'), 'style', `--brand-hue: ${randomHue}`);
   }
 }

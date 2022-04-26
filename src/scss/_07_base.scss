@@ -27,7 +27,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   // removes bounce in scrolling
   overscroll-behavior: none;
-  background-color: hsl(var(--background));
+  background-color: var(--background);
+  border: $spacing--md solid var(--border);
+  transition: background 3s ease-out, border 2s ease-out;
+  @include breakpoint(md) {
+    border-width: $spacing--lg;
+  }
 }
 
 /// Images
