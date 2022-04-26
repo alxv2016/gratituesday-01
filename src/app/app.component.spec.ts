@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'adaptive-color-scheme'`, () => {
+  it(`should have as title 'gratituesday-01'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('adaptive-color-scheme');
+    expect(app.title).toEqual('gratituesday-01');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('adaptive-color-scheme app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('gratituesday-01 app is running!');
   });
 });

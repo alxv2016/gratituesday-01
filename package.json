@@ -1,5 +1,5 @@
 {
-  "name": "adaptive-color-scheme",
+  "name": "gratituesday-01",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~13.3.1",
     "@angular/platform-browser-dynamic": "~13.3.1",
     "@angular/router": "~13.3.1",
+    "@svgdotjs/svg.js": "^3.1.2",
     "gsap": "^3.10.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

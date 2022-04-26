@@ -7,8 +7,7 @@ html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  color: var(--text1);
-  background-color: var(--surface1);
+  color: currentColor;
 }
 
 * {
@@ -18,35 +17,17 @@ html {
     box-sizing: inherit;
   }
   -webkit-tap-highlight-color: rbga(0, 0 0, 0);
-  -webkit-text-size-adjust: none;
 }
 
 body {
   font-family: $base-font-family;
   line-height: $body-line-height;
-  font-weight: 400;
   height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // removes bounce in scrolling
   overscroll-behavior: none;
-  font-size: $body--2;
-  @include breakpoint(sm) {
-    font-size: $body--1;
-  }
-}
-// Links
-a {
-  color: var(--accent2);
-  text-decoration: underline;
-  // Remove the gray background on active links in IE 11.
-  background-color: transparent;
-  // Remove gaps in links underline in iOS 8+ and Safari 8+.
-  -webkit-text-decoration-skip: ink;
-  @include on-focus {
-    //color: $hover-color;
-    text-decoration: underline;
-  }
+  background-color: hsl(var(--background));
 }
 
 /// Images
@@ -60,17 +41,6 @@ img {
 img[height],
 img[width] {
   width: auto;
-}
-
-// Accessibility
-a,
-button,
-select,
-textarea {
-  @include on-focus {
-    // for accessibility reasons we add browser focus ring
-    outline: -webkit-focus-ring-color auto 5px;
-  }
 }
 
 // Utilities

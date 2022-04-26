@@ -1,21 +1,3 @@
-// helper mixins ie predefined styles
-//
-/// focus events
-/// Usage: @include on-event;
-@mixin on-focus($self: false) {
-  @if $self {
-    &,
-    &:active,
-    &:focus {
-      @content;
-    }
-  } @else {
-    &:active,
-    &:focus {
-      @content;
-    }
-  }
-}
 // media query mixin
 // use the base-breakpoints map
 // usage: @include breakpoint($breakpoint);
@@ -55,20 +37,6 @@
   background-color: hsla($hsl / 0.75);
   @if $opacity {
     background-color: hsla($hsl / $opacity);
-  }
-}
-
-// contain screen size
-@mixin container-padding {
-  padding: 0 $spacing--lg;
-  margin: auto;
-  @include breakpoint(md) {
-    padding: 0 $spacing--3xl;
-    //max-width: max-width('md');
-  }
-  @include breakpoint(lg) {
-    padding: 0 $spacing--3xl;
-    //max-width: max-width('lg');
   }
 }
 

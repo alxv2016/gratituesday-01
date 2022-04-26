@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/adaptive-color-scheme'),
+      dir: require('path').join(__dirname, './coverage/gratituesday-01'),
       subdir: '.',
       reporters: [{type: 'html'}, {type: 'text-summary'}],
     },

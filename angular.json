@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "adaptive-color-scheme": {
+    "gratituesday-01": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/adaptive-color-scheme",
+            "outputPath": "dist/gratituesday-01",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "adaptive-color-scheme:build:production"
+              "browserTarget": "gratituesday-01:build:production"
             },
             "development": {
-              "browserTarget": "adaptive-color-scheme:build:development"
+              "browserTarget": "gratituesday-01:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "adaptive-color-scheme:build"
+            "browserTarget": "gratituesday-01:build"
           }
         },
         "test": {
@@ -116,7 +116,7 @@
       }
     }
   },
-  "defaultProject": "adaptive-color-scheme",
+  "defaultProject": "gratituesday-01",
   "cli": {
     "defaultCollection": "@angular-eslint/schematics"
   }
