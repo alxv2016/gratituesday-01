@@ -1,5 +1,5 @@
 import {DOCUMENT} from '@angular/common';
-import {AfterViewInit, Component, Inject, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit, Renderer2, ViewChild, ViewEncapsulation} from '@angular/core';
 import gsap from 'gsap';
 
 @Component({
@@ -16,5 +16,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     const randomHue = Math.floor(gsap.utils.random(0, 360));
     this.render.setProperty(this.document.querySelector('html'), 'style', `--brand-hue: ${randomHue}`);
+    this.render.setProperty(this.document.querySelector('.c-root'), 'style', `--brand-hue: ${randomHue}`);
   }
 }

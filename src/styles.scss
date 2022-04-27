@@ -26,6 +26,7 @@
 
 :root {
   --background: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+  --background-a: var(--brand-hue) var(--brand-saturation) var(--brand-lightness);
   --border: hsl(var(--brand-hue) var(--brand-saturation) 98%);
   --surface-shadow: var(--elevate400);
   --shadow-strength: var(--shadow-strength-light);

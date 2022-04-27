@@ -1,7 +1,30 @@
 @import '../scss/00_imports';
+
 :host(.c-root) {
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
+
+  &::before {
+    position: absolute;
+    content: '';
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    mix-blend-mode: difference;
+    background: linear-gradient(
+      180deg,
+      hsla(var(--brand-hue), var(--brand-saturation), 100%, 0) 0%,
+      hsla(var(--brand-hue), var(--brand-saturation), 40%, 0.45) 100%
+    );
+    mask: $noiseFilter,
+      linear-gradient(
+        180deg,
+        hsla(var(--brand-hue), var(--brand-saturation), 100%, 0) 0%,
+        hsla(var(--brand-hue), var(--brand-saturation), 40%, 0.75) 100%
+      );
+  }
 }
