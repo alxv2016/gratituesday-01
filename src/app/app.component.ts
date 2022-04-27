@@ -1,6 +1,10 @@
 import {DOCUMENT} from '@angular/common';
 import {AfterViewInit, Component, Inject, OnInit, Renderer2, ViewChild, ViewEncapsulation} from '@angular/core';
 import gsap from 'gsap';
+import {OverlayDirective} from './components/overlay/overlay.directive';
+import {OverlayService} from './components/overlay/overlay.service';
+import {WelcomeComponent} from './components/welcome/welcome.component';
+import {ColorService} from './services/color.service';
 
 @Component({
   host: {
@@ -11,11 +15,17 @@ import gsap from 'gsap';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(@Inject(DOCUMENT) private document: Document, private render: Renderer2) {}
+  @ViewChild(OverlayDirective, {static: true}) overlayHost!: OverlayDirective;
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private render: Renderer2,
+    private color: ColorService,
+    private overlay: OverlayService
+  ) {}
 
   ngOnInit(): void {
-    const randomHue = Math.floor(gsap.utils.random(0, 360));
-    this.render.setProperty(this.document.querySelector('html'), 'style', `--brand-hue: ${randomHue}`);
-    this.render.setProperty(this.document.querySelector('.c-root'), 'style', `--brand-hue: ${randomHue}`);
+    this.overlay.getBottomPaneHost(this.overlayHost.viewContainerRef);
+    this.overlay.createBottomPane(WelcomeComponent);
+    this.color.generateHue();
   }
 }
