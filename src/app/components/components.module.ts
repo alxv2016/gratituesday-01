@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {MarqueeComponent} from './marquee/marquee.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [MarqueeComponent],
   imports: [CommonModule],
-  exports: [],
+  exports: [MarqueeComponent],
 })
 export class ComponentsModule {}

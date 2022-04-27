@@ -1,0 +1,48 @@
+@import '../../../scss/00_imports';
+
+:host-context(.c-marquee) {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: $spacing--lg 0;
+  overflow: hidden;
+}
+
+.display-responsive {
+  font-size: 22vw;
+  line-height: $heading-line-height;
+  font-weight: 700;
+  white-space: nowrap;
+  user-select: none;
+  color: var(--surface6);
+  // @include breakpoint(sm) {
+  //   font-size: 16vw;
+  // }
+  @include breakpoint(xl) {
+    font-size: 12vw;
+  }
+}
+
+.display-responsive.em-dash {
+  position: relative;
+  font-weight: 400;
+  line-height: 1;
+  padding-left: $layout--sm;
+  @include breakpoint(md) {
+    padding-left: $layout--lg;
+  }
+}
+
+.scrolling-headline-track {
+  position: relative;
+  display: flex;
+}
+
+.scrolling-headline {
+  white-space: nowrap;
+  padding-left: $layout--sm;
+  @include breakpoint(md) {
+    padding-left: $layout--lg;
+  }
+}
