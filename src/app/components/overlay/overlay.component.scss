@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   top: 0;
   left: 0;
   height: 100%;
@@ -32,7 +32,7 @@
 // Animate state
 :host-context(.c-overlay--animate) .c-overlay-window {
   visibility: visible;
-  transition: transform 325ms 25ms ease;
+  transition: all 325ms 25ms ease;
 }
 
 // Opened state
@@ -40,6 +40,7 @@
   pointer-events: auto;
   .c-overlay-window {
     visibility: visible;
+    opacity: 1;
     transform: none;
   }
 }
@@ -58,45 +59,23 @@
   width: 100%;
   height: auto;
   max-width: 968px;
-  min-height: 40%;
+  min-height: 50%;
   max-height: 80%;
   color: currentColor;
-  background-color: var(--surface2);
-  border-top-left-radius: $spacing--lg;
-  border-top-right-radius: $spacing--lg;
   overflow: hidden;
-  transform: translateY(102%);
-  @include elevate-4(0.095);
+  opacity: 0;
+  transform: translateY(25%);
   visibility: hidden;
-
-  &__header {
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-height: 68px;
-    padding: 0 $spacing--lg;
-    @include frosted-glass(var(--glass1), 0.75);
-    @include breakpoint(md) {
-      padding: 0 $spacing--xl;
-    }
-  }
 
   &__content {
     position: relative;
     width: 100%;
     flex-grow: 1;
     padding: $spacing--lg $spacing--lg;
-    padding-top: 68px;
-    padding-right: 44px;
     overflow-x: hidden;
     overflow-y: auto;
-    margin-top: $spacing--lg;
     @include breakpoint(md) {
       padding: $spacing--xl $spacing--xl;
-      padding-top: 68px;
-      padding-right: 44px;
     }
     /* Works on Chrome, Edge, and Safari */
     &::-webkit-scrollbar {
@@ -111,53 +90,5 @@
       background-color: currentColor;
       border: 2px solid transparent;
     }
-  }
-
-  &-handle {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 6px;
-    margin-top: $spacing--sm;
-    pointer-events: none;
-    &::before {
-      content: '';
-      position: relative;
-      width: 5%;
-      min-width: 48px;
-      height: inherit;
-      border-radius: 4px;
-      background-color: currentColor;
-      opacity: 0.145;
-    }
-  }
-}
-
-.close-btn {
-  position: absolute;
-  z-index: 1;
-  top: $spacing--lg;
-  right: $spacing--sm;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: currentColor;
-  height: 44px;
-  width: 44px;
-  border-radius: 100%;
-  background-color: transparent;
-  transition: background 275ms ease;
-  @include breakpoint(md) {
-    right: $spacing--lg;
-  }
-  &:hover,
-  &:focus {
-    background-color: var(--surface4);
-  }
-  svg {
-    height: 24px;
-    width: 24px;
   }
 }
