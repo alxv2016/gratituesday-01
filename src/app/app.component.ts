@@ -1,5 +1,16 @@
 import {DOCUMENT} from '@angular/common';
-import {AfterViewInit, Component, Inject, OnInit, Renderer2, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DoCheck,
+  Inject,
+  OnChanges,
+  OnInit,
+  Renderer2,
+  SimpleChanges,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import gsap from 'gsap';
 import {OverlayDirective} from './components/overlay/overlay.directive';
 import {OverlayService} from './components/overlay/overlay.service';
@@ -22,7 +33,6 @@ export class AppComponent implements OnInit {
     private color: ColorService,
     private overlay: OverlayService
   ) {}
-
   ngOnInit(): void {
     this.overlay.getBottomPaneHost(this.overlayHost.viewContainerRef);
     this.overlay.createBottomPane(WelcomeComponent);

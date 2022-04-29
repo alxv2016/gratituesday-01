@@ -4,13 +4,16 @@
   position: relative;
   display: block;
   width: 100%;
+  padding: $spacing--xl;
 }
 
 .form-control {
   position: relative;
   display: flex;
   align-items: center;
-  font-size: $subtitle;
+  font-size: $title--3;
+  max-width: 568px;
+  margin: auto;
 
   label {
     position: absolute;
@@ -21,6 +24,7 @@
     transform: translateY(-50%);
     margin-left: $spacing--xl;
     font-size: inherit;
+    transition: transform 325ms ease;
   }
   input[type='text'] {
     position: relative;
@@ -30,9 +34,38 @@
     border-radius: 8px;
     border: 0;
     font-size: inherit;
+    @include elevate-4(0.0175);
     // &:focus,
     // &:active {
     //   outline: none;
     // }
+  }
+
+  input[type='text'].error {
+    animation: shake 0.7s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateX(-6px);
+  }
+  20%,
+  40%,
+  60% {
+    transform: translateX(6px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  90% {
+    transform: translateX(-3px);
   }
 }

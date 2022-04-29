@@ -5,6 +5,7 @@ import {
   Component,
   ElementRef,
   Inject,
+  OnDestroy,
   OnInit,
   Renderer2,
   ViewChild,
@@ -19,9 +20,26 @@ import {OverlayService} from '../overlay/overlay.service';
   styleUrls: ['./welcome.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit, AfterViewInit, OnDestroy {
   welcomeForm!: FormGroup;
-  constructor(private fb: FormBuilder, private render: Renderer2, private overlay: OverlayService) {}
+  eventHandlers: any[] = [];
+  transitionEventHandler: any;
+  constructor(
+    private fb: FormBuilder,
+    private render: Renderer2,
+    private element: ElementRef,
+    private overlay: OverlayService
+  ) {
+    this.onTransitionEnd = this.onTransitionEnd.bind(this);
+  }
+
+  private onTransitionEnd(ev: TransitionEvent) {
+    const input = this.element.nativeElement.querySelector('input');
+    requestAnimationFrame(() => {
+      this.render.removeClass(input, 'error');
+      this.transitionEventHandler();
+    });
+  }
 
   ngOnInit(): void {
     this.welcomeForm = this.fb.group({
@@ -31,5 +49,37 @@ export class WelcomeComponent implements OnInit {
     this.welcomeForm.valueChanges.subscribe((v) => {
       console.log(v);
     });
+  }
+
+  submitForm(value: any): void {
+    const input = this.element.nativeElement.querySelector('input');
+    console.log('enter', value.name.length);
+    if (value.name.length === 0) {
+      requestAnimationFrame(() => {
+        this.render.addClass(input, 'error');
+        this.transitionEventHandler = this.render.listen(input, 'animationend', this.onTransitionEnd);
+      });
+    }
+  }
+
+  ngAfterViewInit(): void {
+    const input = this.element.nativeElement.querySelector('input');
+    const label = this.element.nativeElement.querySelector('label');
+    console.log(input);
+    this.eventHandlers.push(
+      this.render.listen(input, 'focus', (e) => {
+        this.render.setStyle(label, 'transform', 'translateY(-80px)');
+      }),
+      this.render.listen(input, 'blur', (e) => {
+        if (e.currentTarget.value.length <= 0) {
+          this.render.removeStyle(label, 'transform');
+        }
+      })
+    );
+    console.log(this.eventHandlers);
+  }
+
+  ngOnDestroy(): void {
+    this.eventHandlers.forEach((fn) => fn());
   }
 }
